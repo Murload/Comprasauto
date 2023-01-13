@@ -8,7 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from Funcionesglobales.funciselenium import Funciones_Globales
 from Funcionesglobales.loginqa import Login_qasoul
-
+from Funcionesglobales.requestt import Request
 
 class Comprasauto(unittest.TestCase):
 
@@ -20,9 +20,10 @@ class Comprasauto(unittest.TestCase):
     def test_compras(self):
         f = Funciones_Globales(self.driver)
         login = Login_qasoul(self.driver)
+        request = Request(self.driver)
         login.loginqa()
         login.menucompras()
-        
+        request.createnewrequest()
 
 
     def tearDown(self):

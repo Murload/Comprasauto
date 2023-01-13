@@ -27,6 +27,8 @@ class Login_qasoul(unittest.TestCase):
         f = Funciones_Globales(self.driver)
         f.Click_Mixto("xpath", "(//div[contains(.,'Menú')])[3]", 1)
         f.Click_Mixto("xpath", "//button[contains(.,'Módulos')]", 1)
-        
+        f.Click_Mixto("xpath", "//button[contains(.,'compras')]", 1)
+        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[2]", 1)
+        sleep(3)
         
 
