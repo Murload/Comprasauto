@@ -11,6 +11,7 @@ from Funcionesglobales.loginqa import Login_qasoul
 from Funcionesglobales.roleapplicant import Applicant
 from Funcionesglobales.roleanalyst import Analyst
 from Funcionesglobales.rolecoordinator import Coordinator
+from Funcionesglobales.rolecontrol import Control
 
 class Comprasauto(unittest.TestCase):
 
@@ -26,10 +27,12 @@ class Comprasauto(unittest.TestCase):
         roleapplicant = Applicant(self.driver)
         roleanalyst = Analyst(self.driver)
         rolecoordinator = Coordinator(self.driver)
+        rolecontrol = Control(self.driver)
         login.loginqa()
         login.menucompras()
-        roleapplicant.createnewrequest()
-        rolecoordinator.managerequestCoordNotAvailable()
+        # roleapplicant.createnewrequest()
+        # rolecontrol.managerequestCoordNotAvailable()
+        rolecoordinator.manageaccept()
 
     # def test_compra_available(self):
     #     f = Funciones_Globales(self.driver)
@@ -37,10 +40,11 @@ class Comprasauto(unittest.TestCase):
     #     roleapplicant = Applicant(self.driver)
     #     roleanalyst = Analyst(self.driver)
     #     rolecoordinator = Coordinator(self.driver)
+    #     rolecontrol = Control(self.driver)
     #     login.loginqa()
     #     login.menucompras()
     #     roleapplicant.createnewrequest()
-    #     rolecoordinator.managerequestCoordNotAvailable()
+    #     rolecontrol.managerequestCoordAvailable()
 
     def tearDown(self):
         self.driver.close()
