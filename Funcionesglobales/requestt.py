@@ -20,15 +20,16 @@ class Request(unittest.TestCase):
 
     def createnewrequest(self):
         f = Funciones_Globales(self.driver)
-        sleep(5)
+        sleep(3)
         f.Click_NotScroll("//button[@color='primary'][contains(.,'Crear nueva solicitud')]")
         sleep(3)
         f.Click_NotScroll("(//div[contains(.,'Tipo de adquisición *')])[7]")
         f.Click_NotScroll("(//span[contains(@class,'mat-option-text')])[{}]".format(typeadquiran))
         # f.Click_NotScroll("(//div[contains(.,'Categoría *')])[7]")
         f.Click_NotScroll("(//div[contains(.,'Empresa *')])[7]")
-        selectcompany = self.driver.find_element(By.XPATH, "(//span[contains(@class,'mat-option-text')])[{}]".format(companyran))
-        selectcompany.click()
-        sleep(5)
-        selectcompany.send_keys("Campañaprueba", Keys.TAB, "SolicitudAutomatica", Keys.TAB,"Detalles automatico", 
-        Keys.TAB, "Detalles automaticos", Keys.TAB, companyran)
+        f.Click_Mixto("xpath","(//mat-option[contains(@role,'option')])[{}]".format(companyran), 2)
+        campaingauto = self.driver.find_element(By.XPATH, "(//input[contains(@type,'text')])[4]")
+        campaingauto.click()
+        campaingauto.send_keys("CampañapruebaAutomatica", Keys.TAB, "Titulo solicitud automatica", Keys.TAB,"Detalles automatico", 
+        Keys.TAB, "16", "01", "2023", Keys.TAB, "Observación de  ejecución automatica", Keys.TAB, "Televisores", Keys.TAB, companyran)
+        sleep(3)
