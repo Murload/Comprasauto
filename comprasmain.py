@@ -31,7 +31,16 @@ class Comprasauto(unittest.TestCase):
         roleapplicant.createnewrequest()
         rolecoordinator.managerequestCoordNotAvailable()
 
-
+    # def test_compra_available(self):
+    #     f = Funciones_Globales(self.driver)
+    #     login = Login_qasoul(self.driver)
+    #     roleapplicant = Applicant(self.driver)
+    #     roleanalyst = Analyst(self.driver)
+    #     rolecoordinator = Coordinator(self.driver)
+    #     login.loginqa()
+    #     login.menucompras()
+    #     roleapplicant.createnewrequest()
+    #     rolecoordinator.managerequestCoordNotAvailable()
 
     def tearDown(self):
         self.driver.close()
