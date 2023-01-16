@@ -9,6 +9,9 @@ from selenium.webdriver.common.by import By
 from Funcionesglobales.funciselenium import Funciones_Globales
 from Funcionesglobales.loginqa import Login_qasoul
 from Funcionesglobales.roleapplicant import Applicant
+from Funcionesglobales.roleanalyst import Analyst
+from Funcionesglobales.rolecoordinator import Coordinator
+from Funcionesglobales.rolecontrol import Control
 
 class Comprasauto(unittest.TestCase):
 
@@ -22,10 +25,26 @@ class Comprasauto(unittest.TestCase):
         f = Funciones_Globales(self.driver)
         login = Login_qasoul(self.driver)
         roleapplicant = Applicant(self.driver)
+        roleanalyst = Analyst(self.driver)
+        rolecoordinator = Coordinator(self.driver)
+        rolecontrol = Control(self.driver)
         login.loginqa()
         login.menucompras()
-        roleapplicant.createnewrequest()
+        # roleapplicant.createnewrequest()
+        # rolecontrol.managerequestCoordNotAvailable()
+        rolecoordinator.manageaccept()
 
+    # def test_compra_available(self):
+    #     f = Funciones_Globales(self.driver)
+    #     login = Login_qasoul(self.driver)
+    #     roleapplicant = Applicant(self.driver)
+    #     roleanalyst = Analyst(self.driver)
+    #     rolecoordinator = Coordinator(self.driver)
+    #     rolecontrol = Control(self.driver)
+    #     login.loginqa()
+    #     login.menucompras()
+    #     roleapplicant.createnewrequest()
+    #     rolecontrol.managerequestCoordAvailable()
 
     def tearDown(self):
         self.driver.close()
