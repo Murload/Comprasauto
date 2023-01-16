@@ -15,7 +15,7 @@ class Control(unittest.TestCase):
         self.driver=driver
 
 
-    def managerequestCoordAvailable(self):
+    def managerequestContdAvailable(self):
         f = Funciones_Globales(self.driver)
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[4]", 1)
         f.Click_Mixto("xpath", "(//span[@class='mat-button-wrapper'][contains(.,'Gestionar')])[1]", 2)
@@ -25,7 +25,7 @@ class Control(unittest.TestCase):
         f.Click_NotScroll("//button[@type='submit'][contains(.,'Enviar')]")
         sleep(6)
 
-    def managerequestCoordNotAvailable(self):
+    def managerequestContNotAvailable(self):
         f = Funciones_Globales(self.driver)
         sleep(3)
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[4]", 1)

@@ -9,14 +9,42 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from Funcionesglobales.funciselenium import Funciones_Globales
 
+pricecot = random.randint(100000, 99999999)
 
 class Analyst(unittest.TestCase):
     def __init__(self,driver):
         self.driver=driver
 
-
-    def managerequestAna(self):
+    def managerequestAnaAccept(self):
         f = Funciones_Globales(self.driver)
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
-        f.Click_Mixto("xpath", "//span[@class='mat-button-wrapper'][contains(.,'Gestionar')]", 1)
+        f.Click_Mixto("xpath", "(//span[@class='mat-button-wrapper'][contains(.,'Gestionar')])[1]", 1)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Estado')])[17]", 3)  
+        f.Click_NotScroll("(//span[@class='mat-option-text'])[1]")
+        f.Click_Mixto("xpath", "(//div[contains(.,'Cotización 1')])[9]", 2)
+        f.Click_NotScroll('/html/body/div[2]/div[2]/div/mat-dialog-container/app-procesar-solicitud/div/form/mat-dialog-content/div[8]/div[2]/div[1]/mat-form-field/div/div[1]/div[2]/i')
+        f.uploadfile("C:\\Users\\Montechelo\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
+        sleep(2)
+        f.Texto_Mixto("xpath", "(//input[contains(@formcontrolname,'txt')])[2]", pricecot ,1)
+        f.Texto_Mixto("xpath", "(//input[@type='text'])[5]", "Observación cotizaciones automaticas." ,1)
+        f.Click_NotScroll("(//button[contains(@type,'button')])[6]")
+        sleep(1)
+        f.Click_NotScroll("(//button[@type='button'])[9]")
+        sleep(2)
+
+
+    def managerequestAnaback(self):
+        f = Funciones_Globales(self.driver)
+        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
+        f.Click_Mixto("xpath", "(//span[@class='mat-button-wrapper'][contains(.,'Gestionar')])[2]", 1)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Estado')])[17]", 3)  
+        f.Click_NotScroll("(//span[@class='mat-option-text'])[2]")
+        f.Texto_Mixto("xpath", "(//input[@type='text'])[2]", "Observación devuelta automaticamente", 2)
+        sleep(2)
+        f.Click_NotScroll("(//button[@color='primary'])[4]")
+        sleep(1)
+        f.Click_NotScroll("(//button[@type='button'])[8]")
+        sleep(4)
+
+
         
