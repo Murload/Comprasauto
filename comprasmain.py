@@ -8,22 +8,23 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from Funcionesglobales.funciselenium import Funciones_Globales
 from Funcionesglobales.loginqa import Login_qasoul
-from Funcionesglobales.requestt import Request
+from Funcionesglobales.roleapplicant import Applicant
 
 class Comprasauto(unittest.TestCase):
 
     def setUp(self):
-        self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver.exe")
+        # self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver.exe")
+        self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver1.exe")
         funciones = Funciones_Globales(self.driver)
         funciones.Navegar("http://qamios.groupcos.com/login", 1)
         
     def test_compras(self):
         f = Funciones_Globales(self.driver)
         login = Login_qasoul(self.driver)
-        request = Request(self.driver)
+        roleapplicant = Applicant(self.driver)
         login.loginqa()
         login.menucompras()
-        request.createnewrequest()
+        roleapplicant.createnewrequest()
 
 
     def tearDown(self):
