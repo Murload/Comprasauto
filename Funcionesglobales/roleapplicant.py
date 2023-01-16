@@ -12,9 +12,10 @@ from Funcionesglobales.funciselenium import Funciones_Globales
 
 typeadquiran = random.randint(1, 2)
 companyran = random.randint(1, 8)
+categoryran = random.randint(1, 4)
 
 
-class Request(unittest.TestCase):
+class Applicant(unittest.TestCase):
     def __init__(self,driver):
         self.driver=driver
 
@@ -25,7 +26,9 @@ class Request(unittest.TestCase):
         sleep(3)
         f.Click_NotScroll("(//div[contains(.,'Tipo de adquisición *')])[7]")
         f.Click_NotScroll("(//span[contains(@class,'mat-option-text')])[{}]".format(typeadquiran))
-        # f.Click_NotScroll("(//div[contains(.,'Categoría *')])[7]")
+        sleep(3)
+        f.Click_NotScroll("(//div[contains(.,'Categoría *')])[7]")
+        f.Click_Mixto("xpath", "(//span[contains(@class,'mat-option-text')])[1]".format(categoryran), 2)
         f.Click_NotScroll("(//div[contains(.,'Empresa *')])[7]")
         f.Click_Mixto("xpath","(//mat-option[contains(@role,'option')])[{}]".format(companyran), 2)
         campaingauto = self.driver.find_element(By.XPATH, "(//input[contains(@type,'text')])[4]")
@@ -33,3 +36,7 @@ class Request(unittest.TestCase):
         campaingauto.send_keys("CampañapruebaAutomatica", Keys.TAB, "Titulo solicitud automatica", Keys.TAB,"Detalles automatico", 
         Keys.TAB, "16", "01", "2023", Keys.TAB, "Observación de  ejecución automatica", Keys.TAB, "Televisores", Keys.TAB, companyran)
         sleep(3)
+        f.Click_NotScroll("//button[@type='submit'][contains(.,'Guardar')]")
+        sleep(2)
+        self.driver.refresh()
+        
