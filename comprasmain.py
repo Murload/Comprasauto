@@ -21,20 +21,24 @@ class Comprasauto(unittest.TestCase):
         funciones = Funciones_Globales(self.driver)
         funciones.Navegar("http://qamios.groupcos.com/login", 1)
         
-    def test_compras(self):
-        f = Funciones_Globales(self.driver)
-        login = Login_qasoul(self.driver)
-        roleapplicant = Applicant(self.driver)
-        roleanalyst = Analyst(self.driver)
-        rolecoordinator = Coordinator(self.driver)
-        rolecontrol = Control(self.driver)
-        login.loginqa()
-        login.menucompras()
-        # roleapplicant.createnewrequest()
-        # rolecontrol.managerequestCoordNotAvailable()
-        rolecoordinator.manageaccept()
+    # def test_compras_complete(self):
+    #     # Flujo completo desde la solicitud hasta el ingreso del producto
+    #     f = Funciones_Globales(self.driver)
+    #     login = Login_qasoul(self.driver)
+    #     roleapplicant = Applicant(self.driver)
+    #     roleanalyst = Analyst(self.driver)
+    #     rolecoordinator = Coordinator(self.driver)
+    #     rolecontrol = Control(self.driver)
+    #     login.loginqa()
+    #     login.menucompras()
+    #     # roleapplicant.createnewrequest()
+    #     # rolecontrol.managerequestContNotAvailable()
+    #     # roleanalyst.managerequestAnaAccept()
+    #     rolecoordinator.manageaccept()
+
 
     # def test_compra_available(self):
+    #     #Se realiza test para cuando el rol control valide disponibilidad del producto en Almacen 
     #     f = Funciones_Globales(self.driver)
     #     login = Login_qasoul(self.driver)
     #     roleapplicant = Applicant(self.driver)
@@ -44,8 +48,37 @@ class Comprasauto(unittest.TestCase):
     #     login.loginqa()
     #     login.menucompras()
     #     roleapplicant.createnewrequest()
-    #     rolecontrol.managerequestCoordAvailable()
+    #     rolecontrol.managerequestContdAvailable()
 
+    # def test_compras_back(self):
+    #     #Se realiza test para cuando el rol de analista devuelva la solicitud.
+    #     f = Funciones_Globales(self.driver)
+    #     login = Login_qasoul(self.driver)
+    #     roleapplicant = Applicant(self.driver)
+    #     roleanalyst = Analyst(self.driver)
+    #     rolecoordinator = Coordinator(self.driver)
+    #     rolecontrol = Control(self.driver)
+    #     login.loginqa()
+    #     login.menucompras()
+    #     roleapplicant.createnewrequest()
+    #     rolecontrol.managerequestCoordNotAvailable()
+    #     roleanalyst.managerequestAnaback()
+
+    def test_compras_coor_decline(self):
+        # Flujo completo desde la solicitud hasta que el coordinador rechaza la solicitud.
+        f = Funciones_Globales(self.driver)
+        login = Login_qasoul(self.driver)
+        roleapplicant = Applicant(self.driver)
+        roleanalyst = Analyst(self.driver)
+        rolecoordinator = Coordinator(self.driver)
+        rolecontrol = Control(self.driver)
+        login.loginqa()
+        login.menucompras()
+        # roleapplicant.createnewrequest()
+        # rolecontrol.managerequestContNotAvailable()
+        # roleanalyst.managerequestAnaAccept()
+        rolecoordinator.managedecline()
+        
     def tearDown(self):
         self.driver.close()
 

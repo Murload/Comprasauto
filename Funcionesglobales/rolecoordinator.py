@@ -17,4 +17,16 @@ class Coordinator(unittest.TestCase):
         f = Funciones_Globales(self.driver)
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[3]", 4)
         f.Click_NotScroll("(//i[contains(@class,'fi-rr-check')])[1]")
+        sleep(2)
+        f.Click_NotScroll("(//button[contains(@type,'button')])[7]")
         sleep(5)
+    
+    def managedecline(self):
+        f = Funciones_Globales(self.driver)
+        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[3]", 4)
+        f.Click_NotScroll("(//i[contains(@class,'fi-rr-cross')])[1]")
+        sleep(2)
+        f.Click_NotScroll("(//button[@type='button'])[7]")
+        sleep(5)
+
+    
