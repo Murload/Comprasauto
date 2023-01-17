@@ -17,8 +17,8 @@ from Funcionesglobales.rolecontrol import Control
 class Comprasauto(unittest.TestCase):
 
     def setUp(self):
-        # self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver.exe")
-        self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver1.exe")
+        self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver.exe")
+        # self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver1.exe")
         funciones = Funciones_Globales(self.driver)
         funciones.Navegar("http://qamios.groupcos.com/login", 1)
         
@@ -32,10 +32,11 @@ class Comprasauto(unittest.TestCase):
         rolecontrol = Control(self.driver)
         login.loginqa()
         login.menucompras()
-        roleapplicant.createnewrequest()
+        # roleapplicant.createnewrequest()
         # rolecontrol.managerequestContNotAvailable()
         # roleanalyst.managerequestAnaAccept()
         # rolecoordinator.manageaccept()
+        roleanalyst.order()
 
 
     # def test_compra_available(self):
@@ -62,7 +63,7 @@ class Comprasauto(unittest.TestCase):
     #     login.loginqa()
     #     login.menucompras()
     #     roleapplicant.createnewrequest()
-    #     rolecontrol.managerequestCoordNotAvailable()
+    #     rolecontrol.managerequestContNotAvailable()
     #     roleanalyst.managerequestAnaback()
 
     # def test_compras_coor_decline(self):
@@ -75,9 +76,9 @@ class Comprasauto(unittest.TestCase):
     #     rolecontrol = Control(self.driver)
     #     login.loginqa()
     #     login.menucompras()
-    #     # roleapplicant.createnewrequest()
-    #     # rolecontrol.managerequestContNotAvailable()
-    #     # roleanalyst.managerequestAnaAccept()
+    #     roleapplicant.createnewrequest()
+    #     rolecontrol.managerequestContNotAvailable()
+    #     roleanalyst.managerequestAnaAccept()
     #     rolecoordinator.managedecline()
         
     def tearDown(self):

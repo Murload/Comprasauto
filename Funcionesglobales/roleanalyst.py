@@ -6,6 +6,7 @@ import random
 from pyunitreport import HTMLTestRunner
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from Funcionesglobales.funciselenium import Funciones_Globales
 
@@ -23,14 +24,17 @@ class Analyst(unittest.TestCase):
         f.Click_NotScroll("(//span[@class='mat-option-text'])[1]")
         f.Click_Mixto("xpath", "(//div[contains(.,'Cotización 1')])[9]", 2)
         f.Click_NotScroll('/html/body/div[2]/div[2]/div/mat-dialog-container/app-procesar-solicitud/div/form/mat-dialog-content/div[8]/div[2]/div[1]/mat-form-field/div/div[1]/div[2]/i')
-        f.uploadfile("C:\\Users\\Montechelo\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
+        # f.uploadfile("C:\\Users\\Montechelo\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
+        f.uploadfile("C:\\Users\\aleon\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
         sleep(2)
-        f.Texto_Mixto("xpath", "(//input[contains(@formcontrolname,'txt')])[2]", pricecot ,1)
+        f.Texto_Mixto("xpath", "(//input[@aria-required='true'])[2]", pricecot ,1)
+        sleep(2)
         f.Texto_Mixto("xpath", "(//input[@type='text'])[5]", "Observación cotizaciones automaticas." ,1)
+        sleep(2)
         f.Click_NotScroll("(//button[contains(@type,'button')])[6]")
         sleep(1)
         f.Click_NotScroll("(//button[@type='button'])[9]")
-        sleep(2)
+        sleep(6)
 
 
     def managerequestAnaback(self):
@@ -46,5 +50,16 @@ class Analyst(unittest.TestCase):
         f.Click_NotScroll("(//button[@type='button'])[8]")
         sleep(4)
 
-
+    def order(self):
+        f = Funciones_Globales(self.driver)
+        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
+        sleep(3)
+        f.Click_Mixto("xpath", "(//span[contains(.,'Orden')])[1]", 2)
+        searchprov = self.driver.find_element(By.XPATH, "(//input[@aria-invalid='false'])[2]")
+        ActionChains(self.driver).click(searchprov).send_keys("793478952",Keys.ENTER).perform()
+        sleep(1)
+        f.Click_NotScroll("//button[contains(.,'Generar Orden')]")
+        sleep(3)
+        
+        # f.Texto_Mixto("xpath", "(//input[@aria-invalid='false'])[2]", "793478952", 3)
         
