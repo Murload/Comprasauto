@@ -9,6 +9,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
+from random import choice
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import Select
 
@@ -212,3 +213,9 @@ class Funciones_Globales():
     def Textkeyenenter(self, selector):
         searchprov = self.driver.find_element(By.XPATH, selector)
         ActionChains(self.driver).click(searchprov).send_keys("793478952",Keys.ENTER).perform()
+
+    def product(self): 
+        productos = ["Escritorios", "Sillas", "Sillas ergónomica", "Mesedoras", "Descansa Pies ", "Pad mouse","Mesas","Lamparas","Teclados","Mouse","Pantallas","Audifonos",
+        "Cpu","Portatil","Impresora","Emgrapadora","Organizadores","Telefono","Archiveros","Toner","Mesa Laptop","Papelera","Porta Laptop","Carpetas","Alfombrilla para PC","Disco duro para laptop","Adaptador multiuso PC","Organizador de cables",
+        "Soporte de celulares"," Portalápices"]
+        productos_alea = choice(productos)

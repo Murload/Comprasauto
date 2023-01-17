@@ -32,11 +32,11 @@ class Comprasauto(unittest.TestCase):
         rolecontrol = Control(self.driver)
         login.loginqa()
         login.menucompras()
-        # roleapplicant.createnewrequest()
-        # rolecontrol.managerequestContNotAvailable()
-        # roleanalyst.managerequestAnaAccept()
-        # rolecoordinator.manageaccept()
-        roleanalyst.order()
+        roleapplicant.createnewrequest()
+        rolecontrol.managerequestContNotAvailable()
+        roleanalyst.managerequestAnaAccept()
+        rolecoordinator.manageaccept()
+    #     # roleanalyst.order()
 
 
     # def test_compra_available(self):
