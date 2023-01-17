@@ -55,11 +55,11 @@ class Analyst(unittest.TestCase):
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
         sleep(3)
         f.Click_Mixto("xpath", "(//span[contains(.,'Orden')])[1]", 2)
-        searchprov = self.driver.find_element(By.XPATH, "(//input[@aria-invalid='false'])[2]")
-        ActionChains(self.driver).click(searchprov).send_keys("793478952",Keys.ENTER).perform()
+        # searchprov = self.driver.find_element(By.XPATH, "(//input[@aria-invalid='false'])[2]")
+        # ActionChains(self.driver).click(searchprov).send_keys("793478952",Keys.ENTER).perform()
+        f.Textkeyenenter("(//input[@aria-invalid='false'])[2]")
         sleep(1)
         f.Click_NotScroll("//button[contains(.,'Generar Orden')]")
-        sleep(3)
-        
+        sleep(4)
         # f.Texto_Mixto("xpath", "(//input[@aria-invalid='false'])[2]", "793478952", 3)
         

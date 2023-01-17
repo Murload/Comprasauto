@@ -209,3 +209,6 @@ class Funciones_Globales():
             ctrlBis = mainWindow['Abrir'] # open file button
             ctrlBis.ClickInput()
            
+    def Textkeyenenter(self, selector):
+        searchprov = self.driver.find_element(By.XPATH, selector)
+        ActionChains(self.driver).click(searchprov).send_keys("793478952",Keys.ENTER).perform()
