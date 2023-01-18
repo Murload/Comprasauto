@@ -22,8 +22,25 @@ class Comprasauto(unittest.TestCase):
         funciones = Funciones_Globales(self.driver)
         funciones.Navegar("http://qamios.groupcos.com/login", 1)
         
-    def test_compras_complete(self):
-        # Flujo completo desde la solicitud hasta el ingreso del producto
+    # def test_compras_complete(self):
+    #     # Flujo completo desde la solicitud hasta el ingreso del producto
+    #     f = Funciones_Globales(self.driver)
+    #     login = Login_qasoul(self.driver)
+    #     roleapplicant = Applicant(self.driver)
+    #     roleanalyst = Analyst(self.driver)
+    #     rolecoordinator = Coordinator(self.driver)
+    #     rolecontrol = Control(self.driver)
+    #     login.loginqa()
+    #     login.menucompras()
+    #     roleapplicant.createnewrequest()
+    #     rolecontrol.managerequestContNotAvailable()
+    #     roleanalyst.managerequestAnaAccept()
+    #     rolecoordinator.manageaccept()
+    #     roleanalyst.order()
+    #     roleanalyst.sendorder()
+
+    def test_compras_complete_frag(self):
+        # Flujo completo desde la solicitud hasta el ingreso del producto con orden de compra fragmentada
         f = Funciones_Globales(self.driver)
         login = Login_qasoul(self.driver)
         roleapplicant = Applicant(self.driver)
@@ -34,12 +51,14 @@ class Comprasauto(unittest.TestCase):
         login.menucompras()
         roleapplicant.createnewrequest()
         rolecontrol.managerequestContNotAvailable()
-        # roleanalyst.managerequestAnaAccept()
-        # rolecoordinator.manageaccept()
-        # roleanalyst.order()
-        
+        roleanalyst.managerequestAnaAccept()
+        rolecoordinator.manageaccept()
+        roleanalyst.order()
+        roleanalyst.fragorder()
 
+    ##### orden de compra cancelada 
 
+    
     # def test_compra_available(self):
     #     #Se realiza test para cuando el rol control valide disponibilidad del producto en Almacen 
     #     f = Funciones_Globales(self.driver)

@@ -91,19 +91,43 @@ class Analyst(unittest.TestCase):
         ActionChains(self.driver).click(valueabo).send_keys(Keys.TAB,"1000000", Keys.TAB,"5", Keys.TAB, Keys.ARROW_RIGHT,
         Keys.TAB, Keys.ARROW_RIGHT, Keys.TAB, "Ciudad auto", Keys.TAB,"Direccion auto", Keys.TAB,"Observaciones de condiciones auto").perform() 
         sleep(5)
-        f.Click_Mixto("xpath", "(//button[@type='button'])[10]", 5)
+        f.Click_Mixto("xpath", "(//button[@type='button'])[10]", 6)
+        sleep(3)
         
+    def sendorder(self):
+        f = Funciones_Globales(self.driver)
+        # f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
+        sleep(5)
+        f.Click_NotScroll("(//div[contains(.,'Ordenes de compra')])[7]")
+        f.Click_NotScroll("/html/body/app-root/app-mios/app-side-bar/div/mat-sidenav-container/mat-sidenav-content/div/app-solicitudes-list/div/mat-tab-group/div/mat-tab-body[2]/div/app-orden-compra-list/div[3]/table/tbody/tr[1]/td[1]/div/button[3]")
+        f.Click_NotScroll("//button[contains(.,'Aceptar')]")
+        sleep(10)
+
+
     def fragorder(self):
+        f = Funciones_Globales(self.driver)
         companyrandiv = companyran % 2
         frag = companyran/2
+        print(frag)
+        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
+        f.Click_NotScroll("(//div[contains(.,'Ordenes de compra')])[7]")
+        sleep(3)
+        f.Click_NotScroll("/html/body/app-root/app-mios/app-side-bar/div/mat-sidenav-container/mat-sidenav-content/div/app-solicitudes-list/div/mat-tab-group/div/mat-tab-body[2]/div/app-orden-compra-list/div[3]/table/tbody/tr[1]/td[1]/div/button[4]/span[1]/i")
+        sleep(3)
+        f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
         if companyrandiv == 0:
             fragpar=(int(frag))
-            
+            f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragpar, 5)
+            print(fragpar)
         else:
             fragimpar1 = (int(frag))
-            fragimpar2 =(int(frag+1))    
+            fragimpar2 =(int(frag+1))
+            f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragimpar1, 5)
+        f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]")
+        f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
+        sleep(5)
 
-    
+   
         
 
         
