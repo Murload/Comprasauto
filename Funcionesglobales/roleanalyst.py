@@ -59,6 +59,7 @@ class Analyst(unittest.TestCase):
         f = Funciones_Globales(self.driver)
         roleapplicant = Applicant(self.driver)
         # product = roleapplicant.createnewrequest()
+        sleep(4)
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
         sleep(3)
         f.Click_Mixto("xpath", "(//span[contains(.,'Orden')])[1]", 2)
@@ -92,6 +93,15 @@ class Analyst(unittest.TestCase):
         sleep(5)
         f.Click_Mixto("xpath", "(//button[@type='button'])[10]", 5)
         
+    def fragorder(self):
+        companyrandiv = companyran % 2
+        frag = companyran/2
+        if companyrandiv == 0:
+            fragpar=(int(frag))
+            
+        else:
+            fragimpar1 = (int(frag))
+            fragimpar2 =(int(frag+1))    
 
     
         
