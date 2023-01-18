@@ -52,6 +52,7 @@ class Analyst(unittest.TestCase):
 
     def order(self):
         f = Funciones_Globales(self.driver)
+        product = f.product()
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
         sleep(3)
         f.Click_Mixto("xpath", "(//span[contains(.,'Orden')])[1]", 2)
@@ -63,7 +64,7 @@ class Analyst(unittest.TestCase):
         f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
         sleep(4)
         textdetails= self.driver.find_element(By.XPATH, "(//input[contains(@type,'text')])[1]")
-        textdetails.send_keys("Descripción Automatizada"+ Keys.TAB +"Especificación" + Keys.TAB +"10"+ Keys.TAB+
+        textdetails.send_keys(str(product)+ Keys.TAB +"Especificación" + Keys.TAB +"10"+ Keys.TAB+
         "4950000" + Keys.TAB+Keys.ARROW_DOWN+Keys.ARROW_DOWN)
         sleep(10)
         f.Click_Mixto("xpath", "(//button[@color='primary'][contains(.,'Siguiente')])[2]", 2)

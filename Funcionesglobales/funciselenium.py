@@ -142,8 +142,6 @@ class Funciones_Globales():
             print("No se encontro el Elemento" + xpath)
             return t
 
-
-
     def Check_ID(self, id, tiempo):
         try:
             val = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.ID, id)))
@@ -172,9 +170,6 @@ class Funciones_Globales():
             for num in args:
                 print(ex.msg)
                 print("No se encontro el Elemento" + num)
-
-   
-
 
     def Comment_text(self,selector,texto):
                 val = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, selector)))
@@ -219,3 +214,6 @@ class Funciones_Globales():
         "Cpu","Portatil","Impresora","Emgrapadora","Organizadores","Telefono","Archiveros","Toner","Mesa Laptop","Papelera","Porta Laptop","Carpetas","Alfombrilla para PC","Disco duro para laptop","Adaptador multiuso PC","Organizador de cables",
         "Soporte de celulares"," Portalápices"]
         productos_alea = choice(productos)
+        return productos_alea
+       
+        

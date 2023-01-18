@@ -28,8 +28,7 @@ class Applicant(unittest.TestCase):
 
     def createnewrequest(self):
         f = Funciones_Globales(self.driver)
-        # product = f.product()
-        # print(product)
+        product = f.product()
         sleep(3)
         f.Click_NotScroll("//button[@color='primary'][contains(.,'Crear nueva solicitud')]")
         sleep(3)
@@ -42,8 +41,8 @@ class Applicant(unittest.TestCase):
         f.Click_Mixto("xpath","(//mat-option[contains(@role,'option')])[{}]".format(companyran), 2)
         campaingauto = self.driver.find_element(By.XPATH, "(//input[contains(@type,'text')])[4]")
         campaingauto.click()
-        campaingauto.send_keys("CampañapruebaAutomatica", Keys.TAB,  productos_alea +" {}".format(name), Keys.TAB,"Detalles automatico", 
-        Keys.TAB, "16", "01", "2023", Keys.TAB, "Observación de  ejecución automatica", Keys.TAB, productos_alea,Keys.TAB, companyran)
+        campaingauto.send_keys("CampañapruebaAutomatica", Keys.TAB, str(product)+" {}".format(name), Keys.TAB,"Detalles automatico", 
+        Keys.TAB, "16", "01", "2023", Keys.TAB, "Observación de  ejecución automatica", Keys.TAB, str(product) ,Keys.TAB, companyran)
         sleep(3)
         f.Click_NotScroll("//button[@type='submit'][contains(.,'Guardar')]")
         sleep(2)
