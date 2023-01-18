@@ -15,6 +15,7 @@ class Coordinator(unittest.TestCase):
 
     def manageaccept(self):
         f = Funciones_Globales(self.driver)
+        #Aqui el coordinador acepta o rechaza la solicitudes
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[3]", 4)
         f.Click_NotScroll("(//i[contains(@class,'fi-rr-check')])[1]")
         sleep(2) 
@@ -24,6 +25,7 @@ class Coordinator(unittest.TestCase):
     
     def managedecline(self):
         f = Funciones_Globales(self.driver)
+        #Aqui el coordinador rechaza la solicitudes
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[3]", 4)
         f.Click_NotScroll("(//i[contains(@class,'fi-rr-cross')])[1]")
         sleep(2)
