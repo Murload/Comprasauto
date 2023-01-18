@@ -209,11 +209,5 @@ class Funciones_Globales():
         searchprov = self.driver.find_element(By.XPATH, selector)
         ActionChains(self.driver).click(searchprov).send_keys("793478952",Keys.ENTER).perform()
 
-    def product(self): 
-        productos = ["Escritorios", "Sillas", "Sillas ergónomica", "Mesedoras", "Descansa Pies ", "Pad mouse","Mesas","Lamparas","Teclados","Mouse","Pantallas","Audifonos",
-        "Cpu","Portatil","Impresora","Emgrapadora","Organizadores","Telefono","Archiveros","Toner","Mesa Laptop","Papelera","Porta Laptop","Carpetas","Alfombrilla para PC","Disco duro para laptop","Adaptador multiuso PC","Organizador de cables",
-        "Soporte de celulares"," Portalápices"]
-        productos_alea = choice(productos)
-        return productos_alea
-       
+    
         

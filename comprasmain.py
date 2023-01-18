@@ -37,6 +37,7 @@ class Comprasauto(unittest.TestCase):
         roleanalyst.managerequestAnaAccept()
         rolecoordinator.manageaccept()
         roleanalyst.order()
+        
 
 
     # def test_compra_available(self):

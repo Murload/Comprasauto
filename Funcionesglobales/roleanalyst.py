@@ -9,8 +9,13 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from Funcionesglobales.funciselenium import Funciones_Globales
+from Funcionesglobales.roleapplicant import Applicant
 
-pricecot = random.randint(100000, 99999999)
+
+pricecot = random.randint(100000, 999999)
+companyran = random.randint(1, 99)
+iva = random.randint(1, 5)
+methodpay = random.randint(1, 4)
 
 class Analyst(unittest.TestCase):
     def __init__(self,driver):
@@ -52,7 +57,8 @@ class Analyst(unittest.TestCase):
 
     def order(self):
         f = Funciones_Globales(self.driver)
-        product = f.product()
+        roleapplicant = Applicant(self.driver)
+        # product = roleapplicant.createnewrequest()
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
         sleep(3)
         f.Click_Mixto("xpath", "(//span[contains(.,'Orden')])[1]", 2)
@@ -64,10 +70,35 @@ class Analyst(unittest.TestCase):
         f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
         sleep(4)
         textdetails= self.driver.find_element(By.XPATH, "(//input[contains(@type,'text')])[1]")
-        textdetails.send_keys(str(product)+ Keys.TAB +"Especificación" + Keys.TAB +"10"+ Keys.TAB+
-        "4950000" + Keys.TAB+Keys.ARROW_DOWN+Keys.ARROW_DOWN)
-        sleep(10)
+        textdetails.send_keys("Producto", Keys.TAB ,"Especificación", Keys.TAB, companyran, Keys.TAB,
+        pricecot)
+        f.Click_NotScroll("(//div[contains(.,'IVA')])[12]")
+        f.Click_NotScroll("(//span[@class='mat-option-text'])[{}]".format(iva))
+        sleep(3)
         f.Click_Mixto("xpath", "(//button[@color='primary'][contains(.,'Siguiente')])[2]", 2)
+        sleep(3)
+        f = Funciones_Globales(self.driver)
+        f.Texto_Mixto("xpath", "(//input[@type='text'])[3]", "Observación de Orden de compra automatica.",2)
+        f.Texto_Mixto("xpath", "(//input[@aria-required='true'])[6]", "0",2)
+        sleep(3)
+        f.Texto_Mixto("xpath", "//input[@type='date']", "20012023",2)
+        f.Click_NotScroll("(//div[contains(.,'Método de pago')])[9]")
+        f.Click_NotScroll("(//span[@class='mat-option-text'])[{}]".format(methodpay))
+        sleep(3)
+        f.Click_NotScroll("(//div[contains(.,'Condición de pago')])[9]")
+        valueabo = self.driver.find_element(By.XPATH, "(//span[contains(@class,'mat-option-text')])[1]")
+        ActionChains(self.driver).click(valueabo).send_keys(Keys.TAB,"1000000", Keys.TAB,"5", Keys.TAB, Keys.ARROW_RIGHT,
+        Keys.TAB, Keys.ARROW_RIGHT, Keys.TAB, "Ciudad auto", Keys.TAB,"Direccion auto", Keys.TAB,"Observaciones de condiciones auto").perform() 
+        sleep(5)
+        f.Click_Mixto("xpath", "(//button[@type='button'])[10]", 5)
+        
+
+    
+        
+
+        
+
+
 
         
 

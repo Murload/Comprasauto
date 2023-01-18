@@ -9,13 +9,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import TimeoutException
 from Funcionesglobales.funciselenium import Funciones_Globales
+from Funcionesglobales.funciselenium import application
+
 
 
 class Login_qasoul(unittest.TestCase):
     def __init__(self,driver):
         self.driver=driver
-
-
+        
     def loginqa(self):
         f = Funciones_Globales(self.driver)
         f.Texto_Mixto("xpath", "//input[@id='mat-input-0']", "testautos_leo",3)
