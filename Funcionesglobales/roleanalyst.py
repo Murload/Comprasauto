@@ -76,7 +76,7 @@ class Analyst(unittest.TestCase):
         f.Click_NotScroll("(//div[contains(.,'IVA')])[12]")
         f.Click_NotScroll("(//span[@class='mat-option-text'])[{}]".format(iva))
         sleep(3)
-        f.Click_Mixto("xpath", "(//button[@color='primary'][contains(.,'Siguiente')])[2]", 2)
+        f.Click_Mixto("xpath", "(//button[@type='button'])[8]", 2)
         sleep(3)
         f = Funciones_Globales(self.driver)
         f.Texto_Mixto("xpath", "(//input[@type='text'])[3]", "Observación de Orden de compra automatica.",2)

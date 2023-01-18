@@ -26,10 +26,9 @@ class Login_qasoul(unittest.TestCase):
 
     def menucompras(self):
         f = Funciones_Globales(self.driver)
-        f.Click_Mixto("xpath", "(//div[contains(.,'Menú')])[3]", 2)
-        f.Click_Mixto("xpath", "//button[contains(.,'Módulos')]", 2)
-        f.Click_Mixto("xpath", "//button[contains(.,'compras')]", 5)
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[2]", 1)
-        sleep(3)
-        
+        f.Click_Mixto("xpath", "(//div[contains(.,'Menú')])[3]", 3)
+        f.Click_Mixto("xpath", "//button[contains(.,'Módulos')]", 3)
+        f.Click_Mixto("xpath", "(//button[@role='menuitem'])[4]", 4)
+        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[2]", 4)
+
 
