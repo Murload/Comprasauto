@@ -146,6 +146,10 @@ class Analyst(unittest.TestCase):
             sleep(9)
 
 
+        def cancelationOC(self):
+            f = Funciones_Globales(self.driver)
+            
+
 
         
 

@@ -41,7 +41,26 @@ class Comprasauto(unittest.TestCase):
     #     roleanalyst.sendorder()
     #     f.End()
 
-    def test_compras2_com_fra(self):
+    # def test_compras2_com_fra(self):
+    #     # Flujo completo desde la solicitud hasta el ingreso del producto con orden de compra fragmentada
+    #     # print(" # Flujo completo desde la solicitud hasta el ingreso del producto con orden de compra fragmentada")
+    #     # f = Funciones_Globales(self.driver)
+    #     # login = Login_qasoul(self.driver)
+    #     # roleapplicant = Applicant(self.driver)
+    #     # roleanalyst = Analyst(self.driver)
+    #     # rolecoordinator = Coordinator(self.driver)
+    #     # rolecontrol = Control(self.driver)
+    #     # login.loginqa()
+    #     # login.menucompras()
+    #     # roleapplicant.createnewrequest()
+    #     # rolecontrol.managerequestContNotAvailable()
+    #     # roleanalyst.managerequestAnaAccept()
+    #     # rolecoordinator.manageaccept()
+    #     # roleanalyst.order()
+    #     # roleanalyst.fragorder()
+    #     # f.End()
+
+    def test_compras3_com_fra_can(self):
         # Flujo completo desde la solicitud hasta el ingreso del producto con orden de compra fragmentada
         print(" # Flujo completo desde la solicitud hasta el ingreso del producto con orden de compra fragmentada")
         f = Funciones_Globales(self.driver)
@@ -57,7 +76,8 @@ class Comprasauto(unittest.TestCase):
         roleanalyst.managerequestAnaAccept()
         rolecoordinator.manageaccept()
         roleanalyst.order()
-        roleanalyst.fragorder()
+        roleanalyst.sendorder()
+        roleanalyst.cancelationOC()
         f.End()
 
     # ##### orden de compra cancelada 
