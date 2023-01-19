@@ -58,6 +58,7 @@ class Comprasauto(unittest.TestCase):
         rolecoordinator.manageaccept()
         roleanalyst.order()
         roleanalyst.fragorder()
+        roleanalyst.cancelationOC()
         f.End()
 
     # ##### orden de compra cancelada 
