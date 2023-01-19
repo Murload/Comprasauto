@@ -24,7 +24,7 @@ class Analyst(unittest.TestCase):
     def managerequestAnaAccept(self):
         f = Funciones_Globales(self.driver)
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
-        f.Click_Mixto("xpath", "(//span[@class='mat-button-wrapper'][contains(.,'Gestionar')])[1]", 1)
+        f.Click_Mixto("xpath", "(//span[contains(.,'Gestionar')])[1]", 1)
         f.Click_Mixto("xpath", "(//div[contains(.,'Estado')])[17]", 3)  
         f.Click_NotScroll("(//span[@class='mat-option-text'])[1]")
         f.Click_Mixto("xpath", "(//div[contains(.,'Cotización 1')])[9]", 2)
@@ -36,23 +36,22 @@ class Analyst(unittest.TestCase):
         sleep(2)
         f.Texto_Mixto("xpath", "(//input[@type='text'])[5]", "Observación cotizaciones automaticas." ,1)
         sleep(2)
-        f.Click_NotScroll("(//button[contains(@type,'button')])[6]")
+        f.Click_NotScroll("//button[contains(.,'Enviar')]")
         sleep(1)
-        f.Click_NotScroll("(//button[@type='button'])[9]")
+        f.Click_NotScroll("//button[contains(.,'Aceptar')]")
         sleep(6)
-
 
     def managerequestAnaback(self):
         f = Funciones_Globales(self.driver)
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
-        f.Click_Mixto("xpath", "(//span[@class='mat-button-wrapper'][contains(.,'Gestionar')])[2]", 1)
+        f.Click_Mixto("xpath", "(//span[contains(.,'Gestionar')])[1]", 1)
         f.Click_Mixto("xpath", "(//div[contains(.,'Estado')])[17]", 3)  
         f.Click_NotScroll("(//span[@class='mat-option-text'])[2]")
         f.Texto_Mixto("xpath", "(//input[@type='text'])[2]", "Observación devuelta automaticamente", 2)
         sleep(2)
-        f.Click_NotScroll("(//button[@color='primary'])[4]")
+        f.Click_NotScroll("//button[contains(.,'Enviar')]")
         sleep(1)
-        f.Click_NotScroll("(//button[@type='button'])[8]")
+        f.Click_NotScroll("//button[contains(.,'Aceptar')]")
         sleep(4)
 
     def order(self):
@@ -121,7 +120,7 @@ class Analyst(unittest.TestCase):
             f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragpar, 5)
             f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]")
             f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
-            sleep(10)
+            sleep(15)
             f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]")
             sleep(3)
             f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
@@ -137,28 +136,17 @@ class Analyst(unittest.TestCase):
             f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragimpar1, 5)
             f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]")
             f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
-            sleep(10)
+            sleep(15)
             f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]")
             sleep(3)
+            f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
             f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragimpar2, 5)
             f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]")
             f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
             sleep(10)
 
 
-        
-        
-        # f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]")
-        # f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
-        # f.Click_NotScroll("/html/body/app-root/app-mios/app-side-bar/div/mat-sidenav-container/mat-sidenav-content/div/app-solicitudes-list/div/mat-tab-group/div/mat-tab-body[2]/div/app-orden-compra-list/div[3]/table/tbody/tr[1]/td[1]/div/button[4]/span[1]/i")
-        
 
-   
-        # f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
-        # f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragimpar2, 5)
-        # f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]")
-        # f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
-        # sleep(5)
         
 
         
