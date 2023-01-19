@@ -143,7 +143,7 @@ class Analyst(unittest.TestCase):
             f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragimpar2, 5)
             f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]")
             f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
-            sleep(10)
+            sleep(9)
 
 
 
