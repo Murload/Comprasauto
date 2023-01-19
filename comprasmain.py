@@ -17,8 +17,8 @@ from Funcionesglobales.rolecontrol import Control
 class Comprasauto(unittest.TestCase):
 
     def setUp(self):
-        self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver.exe")
-        # self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver1.exe")
+        # self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver.exe")
+        self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver1.exe")
         funciones = Funciones_Globales(self.driver)
         funciones.Navegar("http://qamios.groupcos.com/login", 1)
         

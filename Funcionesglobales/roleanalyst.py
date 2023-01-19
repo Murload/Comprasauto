@@ -29,8 +29,8 @@ class Analyst(unittest.TestCase):
         f.Click_NotScroll("(//span[@class='mat-option-text'])[1]")
         f.Click_Mixto("xpath", "(//div[contains(.,'Cotización 1')])[9]", 2)
         f.Click_NotScroll('/html/body/div[2]/div[2]/div/mat-dialog-container/app-procesar-solicitud/div/form/mat-dialog-content/div[8]/div[2]/div[1]/mat-form-field/div/div[1]/div[2]/i')
-        # f.uploadfile("C:\\Users\\Montechelo\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
-        f.uploadfile("C:\\Users\\aleon\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
+        f.uploadfile("C:\\Users\\Montechelo\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
+        # f.uploadfile("C:\\Users\\aleon\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
         sleep(2)
         f.Texto_Mixto("xpath", "(//input[@aria-required='true'])[2]", pricecot ,1)
         sleep(2)
@@ -108,26 +108,57 @@ class Analyst(unittest.TestCase):
         f = Funciones_Globales(self.driver)
         companyrandiv = companyran % 2
         frag = companyran/2
-        print(frag)
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
         f.Click_NotScroll("(//div[contains(.,'Ordenes de compra')])[7]")
         sleep(3)
-        f.Click_NotScroll("/html/body/app-root/app-mios/app-side-bar/div/mat-sidenav-container/mat-sidenav-content/div/app-solicitudes-list/div/mat-tab-group/div/mat-tab-body[2]/div/app-orden-compra-list/div[3]/table/tbody/tr[1]/td[1]/div/button[4]/span[1]/i")
+        f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]")
         sleep(3)
         f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
         if companyrandiv == 0:
             fragpar=(int(frag))
+            asd = self.driver.find_element(By.XPATH, "(//input[contains(@type,'number')])[4]")
+            print(asd.text)
             f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragpar, 5)
-            print(fragpar)
+            f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]")
+            f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
+            sleep(10)
+            f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]")
+            sleep(3)
+            f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
+            f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragpar, 5)
+            f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]")
+            f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
+            sleep(10)
         else:
             fragimpar1 = (int(frag))
             fragimpar2 =(int(frag+1))
+            asd = self.driver.find_element(By.XPATH, "(//input[contains(@type,'number')])[4]")
+            print(asd.text)
             f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragimpar1, 5)
-        f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]")
-        f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
-        sleep(5)
+            f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]")
+            f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
+            sleep(10)
+            f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]")
+            sleep(3)
+            f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragimpar2, 5)
+            f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]")
+            f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
+            sleep(10)
+
+
+        
+        
+        # f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]")
+        # f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
+        # f.Click_NotScroll("/html/body/app-root/app-mios/app-side-bar/div/mat-sidenav-container/mat-sidenav-content/div/app-solicitudes-list/div/mat-tab-group/div/mat-tab-body[2]/div/app-orden-compra-list/div[3]/table/tbody/tr[1]/td[1]/div/button[4]/span[1]/i")
+        
 
    
+        # f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
+        # f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragimpar2, 5)
+        # f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]")
+        # f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
+        # sleep(5)
         
 
         
