@@ -23,7 +23,7 @@ class Analyst(unittest.TestCase):
 
     def managerequestAnaAccept(self):
         f = Funciones_Globales(self.driver)
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
+        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 5)
         f.Click_Mixto("xpath", "(//span[contains(.,'Gestionar')])[1]", 1)
         f.Click_Mixto("xpath", "(//div[contains(.,'Estado')])[17]", 3)  
         f.Click_NotScroll("(//span[@class='mat-option-text'])[1]")
@@ -31,8 +31,7 @@ class Analyst(unittest.TestCase):
         f.Click_NotScroll('/html/body/div[2]/div[2]/div/mat-dialog-container/app-procesar-solicitud/div/form/mat-dialog-content/div[8]/div[2]/div[1]/mat-form-field/div/div[1]/div[2]/i')
         # f.uploadfile("C:\\Users\\Montechelo\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
         # f.uploadfile("C:\\Users\\aleon\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
-        f.uploadfile("C:\\Users\\tatab\\OneDrive\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
-
+        f.uploadfile("C:\\Users\\Asus\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
         sleep(2)
         f.Texto_Mixto("xpath", "(//input[@aria-required='true'])[2]", pricecot ,1)
         sleep(2)
@@ -73,7 +72,7 @@ class Analyst(unittest.TestCase):
         sleep(4)
         textdetails= self.driver.find_element(By.XPATH, "(//input[contains(@type,'text')])[1]")
         textdetails.send_keys("Producto", Keys.TAB ,"Especificación", Keys.TAB, companyran, Keys.TAB,
-        pricecot)
+        Keys.ARROW_RIGHT, Keys.TAB, pricecot)
         f.Click_NotScroll("(//div[contains(.,'IVA')])[12]")
         f.Click_NotScroll("(//span[@class='mat-option-text'])[{}]".format(iva))
         sleep(3)
@@ -147,13 +146,12 @@ class Analyst(unittest.TestCase):
             f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
             sleep(9)
 
-
-        def cancelationOC(self):
-            f = Funciones_Globales(self.driver)
-            self.driver.refresh()
-            f.Click_NotScroll("(//i[contains(@class,'fi-rr-eye')])[2]")
-            f.Click_NotScroll("(//mat-step-header[contains(@role,'tab')])[3]")
-            sleep(8)
+    def cancelaOrder(self):
+        f = Funciones_Globales(self.driver)
+        self.driver.refresh()
+        f.Click_NotScroll("(//i[contains(@class,'fi-rr-eye')])[2]")
+        f.Click_NotScroll("(//mat-step-header[contains(@role,'tab')])[3]")
+        sleep(8)
             
 
 

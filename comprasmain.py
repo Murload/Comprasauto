@@ -17,8 +17,8 @@ from Funcionesglobales.rolecontrol import Control
 class Comprasauto(unittest.TestCase):
 
     def setUp(self):
-        # self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver.exe")
-        self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver1.exe")
+        self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver.exe")
+        # self.driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver1.exe")
         funciones = Funciones_Globales(self.driver)
         funciones.Navegar("http://qamios.groupcos.com/login", 1)
         
@@ -77,12 +77,12 @@ class Comprasauto(unittest.TestCase):
         rolecoordinator.manageaccept()
         roleanalyst.order()
         roleanalyst.sendorder()
-        roleanalyst.cancelationOC()
+        roleanalyst.cancelaOrder()
         f.End()
 
     # ##### orden de compra cancelada 
 
-    # def test_compra3_available_pro(self):
+    # def test_compra4_available_pro(self):
     #     #Se realiza test para cuando el rol control valide disponibilidad del producto en Almacen 
     #     print("#Se realiza test para cuando el rol control valide disponibilidad del producto en Almacen")
     #     f = Funciones_Globales(self.driver)
@@ -98,7 +98,7 @@ class Comprasauto(unittest.TestCase):
     #     f.End()
 
 
-    # def test_compras4_back_manage(self):
+    # def test_compras5_back_manage(self):
     #     #Se realiza test para cuando el rol de analista devuelva la solicitud.
     #     print("#Se realiza test para cuando el rol de analista devuelva la solicitud.")
     #     f = Funciones_Globales(self.driver)
@@ -115,7 +115,7 @@ class Comprasauto(unittest.TestCase):
     #     f.End()
 
 
-    # def test_compras5_coor_declinee(self):
+    # def test_compras6_coor_declinee(self):
     #     # Flujo completo desde la solicitud hasta que el coordinador rechaza la solicitud.
     #     print("# Flujo completo desde la solicitud hasta que el coordinador rechaza la solicitud.")
     #     f = Funciones_Globales(self.driver)

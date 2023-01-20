@@ -28,7 +28,7 @@ class Control(unittest.TestCase):
     def managerequestContNotAvailable(self):
         f = Funciones_Globales(self.driver)
         sleep(3)
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[4]", 4)
+        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[4]", 5)
         f.Click_Mixto("xpath", "(//span[@class='mat-button-wrapper'][contains(.,'Gestionar')])[1]", 2)
         f.Click_Mixto("xpath", "(//div[contains(.,'Estado')])[17]", 2)
         f.Click_Mixto("xpath", "(//span[@class='mat-option-text'])[2]", 2)
