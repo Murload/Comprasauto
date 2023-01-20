@@ -155,7 +155,7 @@ class Analyst(unittest.TestCase):
         f.Click_NotScroll("(//i[contains(@class,'fi-rr-eye')])[2]")
         f.Click_NotScroll("(//mat-step-header[contains(@role,'tab')])[3]")
         f.Texto_Mixto("xpath", "(//input[@type='text'])[2]", "Observación cancelación automaticamente", 2)
-        f.Click_Mixto("xpath","//button[@color='primary'][contains(.,'Enviar')]")
+        f.Click_Mixto("xpath","//button[@color='primary'][contains(.,'Enviar')]", 3)
         sleep(8)
             
 
