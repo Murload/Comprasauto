@@ -55,3 +55,4 @@ class Applicant(unittest.TestCase):
         sleep(2)
         self.driver.refresh()
         
+        

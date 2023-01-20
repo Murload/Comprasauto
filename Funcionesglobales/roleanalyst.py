@@ -31,7 +31,9 @@ class Analyst(unittest.TestCase):
         f.Click_NotScroll('/html/body/div[2]/div[2]/div/mat-dialog-container/app-procesar-solicitud/div/form/mat-dialog-content/div[8]/div[2]/div[1]/mat-form-field/div/div[1]/div[2]/i')
         # f.uploadfile("C:\\Users\\Montechelo\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
         # f.uploadfile("C:\\Users\\aleon\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
-        f.uploadfile("C:\\Users\\Asus\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
+        # f.uploadfile("C:\\Users\\Asus\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
+        f.uploadfile("C:\Users\tatab\OneDrive\Desktop\Comprasauto\filesupload\cotizacion1.pdf")
+
         sleep(2)
         f.Texto_Mixto("xpath", "(//input[@aria-required='true'])[2]", pricecot ,1)
         sleep(2)
@@ -146,12 +148,15 @@ class Analyst(unittest.TestCase):
             f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
             sleep(9)
 
-    def cancelaOrder(self):
-        f = Funciones_Globales(self.driver)
-        self.driver.refresh()
-        f.Click_NotScroll("(//i[contains(@class,'fi-rr-eye')])[2]")
-        f.Click_NotScroll("(//mat-step-header[contains(@role,'tab')])[3]")
-        sleep(8)
+
+        def cancelationOC(self):
+            f = Funciones_Globales(self.driver)
+            self.driver.refresh()
+            f.Click_NotScroll("(//i[contains(@class,'fi-rr-eye')])[2]")
+            f.Click_NotScroll("(//mat-step-header[contains(@role,'tab')])[3]")
+            f.Texto_Mixto("xpath", "(//input[@type='text'])[2]", "Observación cancelación automaticamente", 2)
+            f.Click_Mixto("xpath","//button[@color='primary'][contains(.,'Enviar')]")
+            sleep(8)
             
 
 
