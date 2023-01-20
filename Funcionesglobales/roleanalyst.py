@@ -151,8 +151,13 @@ class Analyst(unittest.TestCase):
         def cancelationOC(self):
             f = Funciones_Globales(self.driver)
             self.driver.refresh()
+            # (//button[contains(@class,'mat-focus-indicator ng-tns-c445-19 mat-icon-button mat-button-base')])[1]
             f.Click_NotScroll("(//i[contains(@class,'fi-rr-eye')])[2]")
+            # (//mat-step-header[contains(@role,'tab')])[3]
             f.Click_NotScroll("(//mat-step-header[contains(@role,'tab')])[3]")
+            f.Click_Mixto("xpath","(//div[contains(.,'Observación')])[11]",4)
+
+
             sleep(8)
             
 
