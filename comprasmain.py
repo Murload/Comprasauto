@@ -62,7 +62,7 @@ class Comprasauto(unittest.TestCase):
 
     def test_compras3_com_fra_can(self):
         # Flujo completo desde la solicitud hasta el ingreso del producto con orden de compra fragmentada
-        print(" # Flujo completo desde la solicitud hasta el ingreso del producto con orden de compra fragmentada")
+        print(" # Flujo completo desde la solicitud hasta el ingreso del producto con orden de compra fragmentada cancelada")
         f = Funciones_Globales(self.driver)
         login = Login_qasoul(self.driver)
         roleapplicant = Applicant(self.driver)
