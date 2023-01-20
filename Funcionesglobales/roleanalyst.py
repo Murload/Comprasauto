@@ -103,7 +103,7 @@ class Analyst(unittest.TestCase):
         f.Click_NotScroll("(//div[contains(.,'Ordenes de compra')])[7]")
         f.Click_NotScroll("/html/body/app-root/app-mios/app-side-bar/div/mat-sidenav-container/mat-sidenav-content/div/app-solicitudes-list/div/mat-tab-group/div/mat-tab-body[2]/div/app-orden-compra-list/div[3]/table/tbody/tr[1]/td[1]/div/button[3]")
         f.Click_NotScroll("//button[contains(.,'Aceptar')]")
-        sleep(15)
+        sleep(20)
 
 
     def fragorder(self):
