@@ -29,6 +29,5 @@ class Login_qasoul(unittest.TestCase):
         f.Click_Mixto("xpath", "(//div[contains(.,'Menú')])[3]", 5)
         f.Click_Mixto("xpath", "//button[contains(.,'Módulos')]", 5)
         f.Click_Mixto("xpath", "//button[contains(.,'compras')]", 5)
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[2]", 4)
 
 
