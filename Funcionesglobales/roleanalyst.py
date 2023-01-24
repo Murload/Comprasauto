@@ -33,7 +33,6 @@ class Analyst(unittest.TestCase):
         f.uploadfile("C:\\Users\\aleon\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
         # f.uploadfile("C:\\Users\\Asus\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
         # f.uploadfile("C:\\Users\\tatab\\OneDrive\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
-
         sleep(2)
         f.Texto_Mixto("xpath", "(//input[@aria-required='true'])[2]", pricecot ,1)
         sleep(2)
