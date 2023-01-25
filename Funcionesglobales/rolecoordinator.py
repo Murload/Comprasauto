@@ -34,5 +34,7 @@ class Coordinator(unittest.TestCase):
         f.Texto_Mixto("xpath", "(//input[@placeholder='Motivo de rechazo'])[1]", "Observación rechazada coordinador automatica.", 3)
         f.Click_NotScroll("//button[contains(.,'Aceptar')]")
         sleep(6)
+        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[2]", 6)
+
 
     
