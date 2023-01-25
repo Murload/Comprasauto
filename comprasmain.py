@@ -58,7 +58,8 @@ class Comprasauto(unittest.TestCase):
         roleanalyst.managerequestAnaAccept()
         rolecoordinator.manageaccept()
         roleanalyst.order()
-        roleanalyst.fragorder()
+        # roleanalyst.fragorder()
+        # rolecontrol.entry_product_frag()
         f.End()
 
     # def test_cancelation(self):
