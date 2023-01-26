@@ -90,11 +90,13 @@ class Funciones_Globales():
                 return t
 
 
-    def Click_NotScroll(self, selector):
+    def Click_NotScroll(self, selector, tiempo):
             try:
                 val = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, selector)))
                 val = self.driver.find_element(By.XPATH, selector)
                 val.click()
+                t = time.sleep(tiempo)
+                return t
             except TimeoutException as ex:
                 print(ex.msg)
                 print("No se encontro el Elemento" + selector)

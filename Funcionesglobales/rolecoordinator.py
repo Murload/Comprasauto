@@ -14,26 +14,30 @@ class Coordinator(unittest.TestCase):
         self.driver=driver
 
     def manageaccept(self):
+        # Llamado de funciones globales
         f = Funciones_Globales(self.driver)
-        #Aqui el coordinador acepta o rechaza la solicitudes
         sleep(3)
+        # Entra al modulo del rol coordinador
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[3]", 6)
-        f.Click_NotScroll("(//i[contains(@class,'fi-rr-check')])[1]")
-        sleep(2) 
-        # f.Click_NotScroll("(//button[contains(@type,'button')])[7]")
+        # Se da click en el icono de aceptar
+        f.Click_NotScroll("(//i[contains(@class,'fi-rr-check')])[1]", 2)
+        # Diligencia el campo de observaciones 
         f.Texto_Mixto("xpath", "(//input[contains(@placeholder,'Observaciones')])[1]", "Observación aceptada coordinador automatica.", 3)
-        f.Click_NotScroll("//button[contains(.,'Aceptar')]")
-        sleep(6)
+        # Se da click en el botón de aceptar
+        f.Click_NotScroll("//button[contains(.,'Aceptar')]", 6)
     
     def managedecline(self):
+        # Llamado de funciones globales
         f = Funciones_Globales(self.driver)
-        #Aqui el coordinador rechaza la solicitudes
+        # Entra al modulo del rol coordinador
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[3]", 6)
-        f.Click_NotScroll("(//i[contains(@class,'fi-rr-cross')])[1]")
-        sleep(2)
+        # Se da click en el icono de rechazar
+        f.Click_NotScroll("(//i[contains(@class,'fi-rr-cross')])[1]", 2)
+        # Diligencia el campo de observaciones 
         f.Texto_Mixto("xpath", "(//input[@placeholder='Motivo de rechazo'])[1]", "Observación rechazada coordinador automatica.", 3)
-        f.Click_NotScroll("//button[contains(.,'Aceptar')]")
-        sleep(6)
+        # Se da click en el botón de aceptar
+        f.Click_NotScroll("//button[contains(.,'Aceptar')]", 6)
+        # Entra al modulo del rol Solicitante
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[2]", 6)
 
 

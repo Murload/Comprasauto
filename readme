@@ -1,0 +1,12 @@
+____----README----_____
+
+1. Se debe tener el navegador GOOGLE Chrome Actualizado.
+2. Se debe tener el Webdriver de GOOGLE Chrome Actualzado y se debe poner en la ruta "C:\Driver\chromedriver.exe".
+3. Se debe clonar el repositorio (RECOMENDADO en el ESCRITORIO).
+4. Se debe editar la linea 162 del archivo oportunities.py, donde se debe modificar el USER dependiendo del equipo se modifica.
+4. Se debe ejecutar desde la terminal con el comando python .\comercialmain.py
+
+SE DEBE TENER EN CUENTA QUE PARA PODER EJECUTAR EL TEST LO MEJOR ES TENER BUENA CONEXIÓN, YA QUE SI SE DEMORA MAS DE LO DEBIDO MUERE PORQUE NO ENCONTRARIA EL LOCALIZADOR QUE SE BUSCA.
+
+
+CODIGO HECHO POR: ADRIAN LEONARDO MURCIA LOPEZ - QA TERTER JR
