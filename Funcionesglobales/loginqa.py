@@ -20,15 +20,14 @@ class Login_qasoul(unittest.TestCase):
     def loginqa(self):
         f = Funciones_Globales(self.driver)
         f.Texto_Mixto("xpath", "//input[@id='mat-input-0']", "testautos_leo",3)
-        f.Texto_Mixto("xpath", "//input[@id='mat-input-1']", "Diciembre123*", 3)
+        f.Texto_Mixto("xpath", "//input[@id='mat-input-1']", "Enero2023*", 3)
         f.Click_Mixto("xpath", "//button[@type='submit']", 3)
         sleep(2)
 
     def menucompras(self):
         f = Funciones_Globales(self.driver)
-        f.Click_Mixto("xpath", "(//div[contains(.,'Menú')])[3]", 3)
-        f.Click_Mixto("xpath", "//button[contains(.,'Módulos')]", 3)
-        f.Click_Mixto("xpath", "//button[contains(.,'compras')]", 4)
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[2]", 4)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Menú')])[3]", 2)
+        f.Click_Mixto("xpath", "//button[contains(.,'Módulos')]", 2)
+        f.Click_Mixto("xpath", "//button[contains(.,'compras')]", 2)
 
 

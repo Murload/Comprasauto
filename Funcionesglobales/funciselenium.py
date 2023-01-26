@@ -110,7 +110,7 @@ class Funciones_Globales():
                   
 
     def End(self):
-        print("**Se termina el flujo de comercial correctamente**")
+        print("**Se termina el flujo de compras correctamente**")
 
 
     def Upload_Xpath(self, xpath,ruta):

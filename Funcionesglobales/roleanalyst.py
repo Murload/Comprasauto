@@ -23,7 +23,7 @@ class Analyst(unittest.TestCase):
 
     def managerequestAnaAccept(self):
         f = Funciones_Globales(self.driver)
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
+        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 5)
         f.Click_Mixto("xpath", "(//span[contains(.,'Gestionar')])[1]", 1)
         f.Click_Mixto("xpath", "(//div[contains(.,'Estado')])[17]", 3)  
         f.Click_NotScroll("(//span[@class='mat-option-text'])[1]")
@@ -31,8 +31,8 @@ class Analyst(unittest.TestCase):
         f.Click_NotScroll('/html/body/div[2]/div[2]/div/mat-dialog-container/app-procesar-solicitud/div/form/mat-dialog-content/div[8]/div[2]/div[1]/mat-form-field/div/div[1]/div[2]/i')
         # f.uploadfile("C:\\Users\\Montechelo\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
         # f.uploadfile("C:\\Users\\aleon\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
-        f.uploadfile("C:\\Users\\tatab\\OneDrive\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
-
+        f.uploadfile("C:\\Users\\Asus\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
+        # f.uploadfile("C:\\Users\\tatab\\OneDrive\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
         sleep(2)
         f.Texto_Mixto("xpath", "(//input[@aria-required='true'])[2]", pricecot ,1)
         sleep(2)
@@ -51,7 +51,7 @@ class Analyst(unittest.TestCase):
         f.Click_NotScroll("(//span[@class='mat-option-text'])[2]")
         f.Texto_Mixto("xpath", "(//input[@type='text'])[2]", "Observación devuelta automaticamente", 2)
         sleep(2)
-        f.Click_NotScroll("//button[contains(.,'Enviar')]")
+        f.Click_NotScroll("//button[contains(.,'Guardar')]")
         sleep(1)
         f.Click_NotScroll("//button[contains(.,'Aceptar')]")
         sleep(4)
@@ -73,7 +73,7 @@ class Analyst(unittest.TestCase):
         sleep(4)
         textdetails= self.driver.find_element(By.XPATH, "(//input[contains(@type,'text')])[1]")
         textdetails.send_keys("Producto", Keys.TAB ,"Especificación", Keys.TAB, companyran, Keys.TAB,
-        pricecot)
+        Keys.ARROW_RIGHT, Keys.TAB, pricecot)
         f.Click_NotScroll("(//div[contains(.,'IVA')])[12]")
         f.Click_NotScroll("(//span[@class='mat-option-text'])[{}]".format(iva))
         sleep(3)
@@ -98,11 +98,11 @@ class Analyst(unittest.TestCase):
     def sendorder(self):
         f = Funciones_Globales(self.driver)
         # f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
-        sleep(5)
-        f.Click_NotScroll("(//div[contains(.,'Ordenes de compra')])[7]")
+        sleep(6)
+        f.Click_NotScroll("(//div[contains(.,'Órdenes de compra')])[7]")
         f.Click_NotScroll("/html/body/app-root/app-mios/app-side-bar/div/mat-sidenav-container/mat-sidenav-content/div/app-solicitudes-list/div/mat-tab-group/div/mat-tab-body[2]/div/app-orden-compra-list/div[3]/table/tbody/tr[1]/td[1]/div/button[3]")
         f.Click_NotScroll("//button[contains(.,'Aceptar')]")
-        sleep(15)
+        sleep(20)
 
 
     def fragorder(self):
@@ -110,7 +110,7 @@ class Analyst(unittest.TestCase):
         companyrandiv = companyran % 2
         frag = companyran/2
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
-        f.Click_NotScroll("(//div[contains(.,'Ordenes de compra')])[7]")
+        f.Click_NotScroll("(//div[contains(.,'Órdenes de compra')])[7]")
         sleep(3)
         f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]")
         sleep(3)
@@ -147,13 +147,17 @@ class Analyst(unittest.TestCase):
             f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 4)
             sleep(9)
 
-
-        def cancelationOC(self):
-            f = Funciones_Globales(self.driver)
-            self.driver.refresh()
-            f.Click_NotScroll("(//i[contains(@class,'fi-rr-eye')])[2]")
-            f.Click_NotScroll("(//mat-step-header[contains(@role,'tab')])[3]")
-            sleep(8)
+    def cancelationOC(self):
+        f = Funciones_Globales(self.driver)
+        # f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 4)
+        # f.Click_NotScroll("(//div[contains(.,'Órdenes de compra')])[7]")
+        sleep(2)
+        f.Click_NotScroll("(//i[contains(@class,'fi-rr-eye')])[1]")
+        sleep(2)
+        f.Click_NotScroll("//mat-step-header[contains(.,'3Finalizar orden')]")
+        f.Texto_Mixto("xpath", "(//input[@type='text'])[8]", "Observación cancelación automaticamente", 2)
+        f.Click_Mixto("xpath","//button[@color='primary'][contains(.,'Enviar')]", 3)
+        sleep(5)
             
 
 

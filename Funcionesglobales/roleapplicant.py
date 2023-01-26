@@ -36,6 +36,7 @@ class Applicant(unittest.TestCase):
        
     def createnewrequest(self):
         f = Funciones_Globales(self.driver)
+        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[2]", 4)
         sleep(3)
         f.Click_NotScroll("//button[@color='primary'][contains(.,'Crear nueva solicitud')]")
         sleep(3)
@@ -54,4 +55,5 @@ class Applicant(unittest.TestCase):
         f.Click_NotScroll("//button[@type='submit'][contains(.,'Guardar')]")
         sleep(2)
         self.driver.refresh()
+        
         
