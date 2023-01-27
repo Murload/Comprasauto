@@ -39,10 +39,10 @@ class Analyst(unittest.TestCase):
         # le da click al campo de cotización 
         f.Click_Mixto("xpath", "(//div[contains(.,'Cotización 1')])[9]", 2)
         # Se da click en el icono del clip para cargar archivo
-        f.Click_NotScroll('/html/body/div[2]/div[2]/div/mat-dialog-container/app-procesar-solicitud/div/form/mat-dialog-content/div[8]/div[2]/div[1]/mat-form-field/div/div[1]/div[2]/i',1)
+        f.Click_NotScroll("/html/body/div[2]/div[2]/div/mat-dialog-container/app-procesar-solicitud/div/form/mat-dialog-content/div[9]/div[2]/div[1]/mat-form-field/div/div[1]/div[2]/i",1)
         #Se debe enviar la ruta donde se encuentra el archivo
         # En este caso se debe modifcar el nombre del usuario en la ruta
-        f.uploadfile("C:\\Users\\Montechelo\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
+        f.uploadfile("C:\\Users\\aleon\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
         sleep(2)
         # Diligencia el campo de precio 
         f.Texto_Mixto("xpath", "(//input[@aria-required='true'])[2]", pricecot ,1)

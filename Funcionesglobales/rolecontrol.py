@@ -84,16 +84,14 @@ class Control(unittest.TestCase):
         # Entra al modulo del rol control
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[4]", 4)
         # Se da click en el botón tap de Ingresos
-        f.Click_NotScroll("(//div[contains(.,'Ingresos')])[7]", 1)
+        f.Click_NotScroll("(//div[contains(.,'Ingresos')])[7]",1)
         # Se hace un cantador para el for de acontinuación
-        cont = 0
         # El for hace que se realice la accion 2 veces que en este caso es la remision de una Orden fragmentada
         for i in range(1,3):
-            cont = cont+1
             # Dar click en la obligacion para que se despliegue el acordeon
-            f.Click_NotScroll("(//td[@role='gridcell'])[2]", 1)
+            f.Click_NotScroll("(//td[@role='gridcell'])[2]", 2)
             # Se da click en el icono de editar añadiendo el contador para que por cada recorrida tome un valor y se puedan tomar los diferentes localizadores
-            f.Click_NotScroll("(//i[contains(@class,'fi-rr-edit')])[{}]".format(cont),2)
+            f.Click_NotScroll("(//i[contains(@class,'fi-rr-edit')])[1]",2)
             # Se da click en el botón tap de Remision
             f.Click_Mixto("xpath", "(//div[contains(.,'Remisión')])[8]", 4)
             # Da click en el checklist
@@ -109,7 +107,8 @@ class Control(unittest.TestCase):
             # Se da click en el botón de Enviar
             f.Click_NotScroll("//button[contains(.,'Enviar')]",1)
             # Se da click en el botón de Aceptar
-            f.Click_NotScroll("//button[contains(.,'Aceptar')]",4)
+            f.Click_NotScroll("//button[contains(.,'Aceptar')]",10)
+
         sleep(5)
     
         
