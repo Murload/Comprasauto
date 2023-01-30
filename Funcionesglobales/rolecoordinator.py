@@ -16,9 +16,9 @@ class Coordinator(unittest.TestCase):
     def manageaccept(self):
         # Llamado de funciones globales
         f = Funciones_Globales(self.driver)
-        sleep(3)
+        sleep(4)
         # Entra al modulo del rol coordinador
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[3]", 6)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[9]", 6)
         # Se da click en el icono de aceptar
         f.Click_NotScroll("(//i[contains(@class,'fi-rr-check')])[1]", 2)
         # Diligencia el campo de observaciones 
@@ -29,8 +29,9 @@ class Coordinator(unittest.TestCase):
     def managedecline(self):
         # Llamado de funciones globales
         f = Funciones_Globales(self.driver)
+        sleep(4)
         # Entra al modulo del rol coordinador
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[3]", 6)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[9]", 6)
         # Se da click en el icono de rechazar
         f.Click_NotScroll("(//i[contains(@class,'fi-rr-cross')])[1]", 2)
         # Diligencia el campo de observaciones 
@@ -38,7 +39,7 @@ class Coordinator(unittest.TestCase):
         # Se da click en el botón de aceptar
         f.Click_NotScroll("//button[contains(.,'Aceptar')]", 6)
         # Entra al modulo del rol Solicitante
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[2]", 6)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[8]", 6)
 
 
     

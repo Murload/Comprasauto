@@ -27,9 +27,10 @@ class Analyst(unittest.TestCase):
 
     def managerequestAnaAccept(self):
         # Llamado de funciones globales
+        sleep(4)
         f = Funciones_Globales(self.driver)
         # Entra al modulo del rol analista
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 5)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[7]", 5)
         # Se da click en el botón de gestionar
         f.Click_Mixto("xpath", "(//span[contains(.,'Gestionar')])[1]", 1)
         # le da click al seleccionable de Estado
@@ -56,8 +57,9 @@ class Analyst(unittest.TestCase):
     def managerequestAnaback(self):
         # Llamado de funciones globales
         f = Funciones_Globales(self.driver)
+        sleep(4)
         # Entra al modulo del rol analista
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[7]", 3)
         # Se da click en el botón de gestionar
         f.Click_Mixto("xpath", "(//span[contains(.,'Gestionar')])[1]", 1)
         # le da click al seleccionable de Estado
@@ -76,12 +78,12 @@ class Analyst(unittest.TestCase):
         f = Funciones_Globales(self.driver)
         sleep(4)
         # Entra al modulo del rol analista
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 4)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[7]", 4)
         # Se da click en el botón de orden
         f.Click_Mixto("xpath", "(//span[contains(.,'Orden')])[1]", 2)
         # Diligencia el campo de NIT proveedor y le da enter
         f.Textkeyenenter("(//input[@aria-invalid='false'])[2]")
-        sleep(1)
+        sleep(3)
         # Se da click en el botón de Generar orden
         f.Click_NotScroll("//button[contains(.,'Generar Orden')]", 4)
         # Se da click en el botón de siguiente
@@ -115,8 +117,10 @@ class Analyst(unittest.TestCase):
         Keys.TAB, Keys.ARROW_RIGHT, Keys.TAB, "Ciudad auto", Keys.TAB,"Direccion auto", Keys.TAB,"Observaciones de condiciones auto").perform() 
         sleep(5)
         # Se da click en el botón de Guardar
-        f.Click_Mixto("xpath", "(//button[@type='button'])[10]", 10)
-        
+        f.Click_Mixto("xpath", "(//button[@type='button'])[10]", 2)
+        # Se da click en el botón de Guardar
+        f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 10)
+
     def sendorder(self):
         # Llamado de funciones globales
         f = Funciones_Globales(self.driver)
@@ -137,7 +141,8 @@ class Analyst(unittest.TestCase):
         # Se divide el numero en 2 para asi mismo hacer 2 fragmentaciones
         frag = companyran/2
         # Se da click al modulo de analista
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[1]", 1)
+        sleep(4)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[7]", 1)
         # Se da click al tap de Ordenes de compra
         f.Click_NotScroll("(//div[contains(.,'Órdenes de compra')])[7]",3 )
         # Se da click al icono de fragmentacion
@@ -153,6 +158,8 @@ class Analyst(unittest.TestCase):
             f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]", 1)
             # Se da click al botón de Guardar
             f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 21)
+            # Se da click en el botón de Continuar
+            f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 20)
             # Se da click al icono de fragmentacion
             f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]", 5)
             # Se da click al botón de siguiente
@@ -162,7 +169,9 @@ class Analyst(unittest.TestCase):
             # Se da click al botón de siguiente
             f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]", 1)
             # Se da click al botón de Guardar
-            f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 14)
+            f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 2)
+            # Se da click en el botón de Continuar
+            f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 20)
         else:
         # Se valida si es impar
             fragimpar1 = (int(frag))
@@ -174,26 +183,35 @@ class Analyst(unittest.TestCase):
             f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]",1 )
              # Se da click al botón de Guardar
             f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 21)
+            # Se da click en el botón de Continuar
+            f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 20)
+            # Se da click al icono de fragmentacion
             f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]",4)
+            # Se da click en el botón de siguiente
             f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
             # Diligencia el campo de nueva cantidad
             f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragimpar2, 5)
             # Se da click al botón de siguiente
             f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]",1)
             # Se da click al botón de Guardar
-            f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 13)
+            f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 2)
+            # Se da click en el botón de Continuar
+            f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 20)
 
     def cancelationOC(self):
         # Llamado de funciones globales
         f = Funciones_Globales(self.driver)
         # Se da click al icono del ojo
+        sleep(3)
         f.Click_NotScroll("(//i[contains(@class,'fi-rr-eye')])[1]",2)
         # Se da click al tap de Finalizar orden
         f.Click_NotScroll("//mat-step-header[contains(.,'3Finalizar orden')]",1)
         # Diligencia el campo de Observacion
         f.Texto_Mixto("xpath", "(//input[@type='text'])[8]", "Observación cancelación automaticamente", 2)
         # Se da click al botón de Enviar
-        f.Click_Mixto("xpath","//button[@color='primary'][contains(.,'Enviar')]", 8)
+        f.Click_Mixto("xpath","//button[@color='primary'][contains(.,'Enviar')]", 2)
+        # Se da click en el botón de Continuar
+        f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 10)
             
 
 

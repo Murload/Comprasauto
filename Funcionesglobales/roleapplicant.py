@@ -34,13 +34,14 @@ class Applicant(unittest.TestCase):
     def createnewrequest(self):
         # Llamado de funciones globales
         f = Funciones_Globales(self.driver)
+        sleep(4)
         # Entra al modulo del rol solicitante
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[2]", 7)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[8]", 4)
         # Entra le da click al botón de crear nueva solicitud
         f.Click_NotScroll("//button[@color='primary'][contains(.,'Crear nueva solicitud')]", 3)
         # le da click al seleccionable de tipo de adquisicion
         f.Click_NotScroll("(//div[contains(.,'Tipo de adquisición *')])[7]", 1)
-        # Selecciona un tipo de adquisicion aleatoria
+        # # Selecciona un tipo de adquisicion aleatoria
         f.Click_NotScroll("(//span[contains(@class,'mat-option-text')])[{}]".format(typeadquiran),3 )
         # le da click al seleccionable de categoria
         f.Click_NotScroll("(//div[contains(.,'Categoría *')])[7]",1)

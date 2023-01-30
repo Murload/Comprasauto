@@ -20,7 +20,7 @@ class Control(unittest.TestCase):
     def managerequestContdAvailable(self):
         # Llamado de funciones globales
         f = Funciones_Globales(self.driver)
-        sleep(3)
+        sleep(4)
         # Entra al modulo del rol control
         f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[4]", 5)
         # Se da click en el botón de gestionar del la solicitud más reciente
@@ -37,9 +37,9 @@ class Control(unittest.TestCase):
     def managerequestContNotAvailable(self):
         # Llamado de funciones globales
         f = Funciones_Globales(self.driver)
-        sleep(3)
+        sleep(6)
         # Entra al modulo del rol control
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[4]", 5)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[10]", 5)
         # Se da click en el botón de gestionar del la solicitud más reciente
         f.Click_Mixto("xpath", "(//span[@class='mat-button-wrapper'][contains(.,'Gestionar')])[1]", 3)
         # le da click al seleccionable de estado
@@ -54,9 +54,9 @@ class Control(unittest.TestCase):
     def entry_product(self):
         # Llamado de funciones globales
         f = Funciones_Globales(self.driver)
-        sleep(3)
+        sleep(4)
         # Entra al modulo del rol control
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[4]", 4)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[10]", 4)
         # Se da click en el botón tap de Ingresos
         f.Click_NotScroll("(//div[contains(.,'Ingresos')])[7]",1 )
         # Se da click en el botón icono de Editar
@@ -81,9 +81,9 @@ class Control(unittest.TestCase):
     def entry_product_frag(self):
         # Llamado de funciones globales
         f = Funciones_Globales(self.driver)
-        sleep(3)
+        sleep(4)
         # Entra al modulo del rol control
-        f.Click_Mixto("xpath", "(//div[@class='mat-list-item-content'][contains(.,'Solicitudes')])[4]", 7)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[10]", 7)
         # Se da click en el botón tap de Ingresos
         f.Click_NotScroll("(//div[contains(.,'Ingresos')])[7]",1)
         # Se hace un cantador para el for de acontinuación
@@ -109,7 +109,6 @@ class Control(unittest.TestCase):
             f.Click_NotScroll("//button[contains(.,'Enviar')]",1)
             # Se da click en el botón de Aceptar
             f.Click_NotScroll("//button[contains(.,'Aceptar')]",10)
-
         sleep(5)
     
         

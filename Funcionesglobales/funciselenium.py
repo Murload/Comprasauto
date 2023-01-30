@@ -212,4 +212,8 @@ class Funciones_Globales():
         ActionChains(self.driver).click(searchprov).send_keys("793478952",Keys.ENTER).perform()
 
     
-        
+    def selects(self, selectorselect):
+        selectt = Select(self.driver.find_element(By.CLASS_NAME, selectorselect))
+        selectt.click()
+        time.sleep(3)
+        selectt.select_by_value(1)
