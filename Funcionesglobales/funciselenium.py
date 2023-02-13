@@ -211,9 +211,8 @@ class Funciones_Globales():
         searchprov = self.driver.find_element(By.XPATH, selector)
         ActionChains(self.driver).click(searchprov).send_keys("793478952",Keys.ENTER).perform()
 
-    
-    def selects(self, selectorselect):
-        selectt = Select(self.driver.find_element(By.CLASS_NAME, selectorselect))
-        selectt.click()
-        time.sleep(3)
-        selectt.select_by_value(1)
+    def gettext(self, selector):
+        val1 = self.driver.find_element(By.XPATH, selector)
+        val2 = val1.get_attribute('value')
+        print(val2)
+        

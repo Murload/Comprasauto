@@ -212,6 +212,44 @@ class Analyst(unittest.TestCase):
         f.Click_Mixto("xpath","//button[@color='primary'][contains(.,'Enviar')]", 2)
         # Se da click en el botón de Continuar
         f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 10)
+
+    def associate(self):
+        # Llamado de funciones globales
+        f = Funciones_Globales(self.driver)
+        # Le da click al modulo del analista
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[7]", 5)
+        # Da click en el botón de gestionar
+        f.Click_NotScroll("(//span[contains(.,'Gestionar')])[1]", 3)
+         # le da click al seleccionable de Estado
+        f.Click_Mixto("xpath", "(//div[contains(.,'Estado')])[17]", 3)
+        # le da click al seleccionable de Estado  
+        f.Click_NotScroll("(//span[@class='mat-option-text'])[1]", 2)
+        #Le da click en el botón de Crear solicitud asociada
+        f.Click_NotScroll("//button[contains(.,'Crear solicitud asociada')]", 3)
+        f.gettext("(//div[@class='col-4'])[12]")
+        # Llenar campo de descripcion
+        description = self.driver.find_element(By.XPATH, "(//input[contains(@type,'text')])[2]")
+        description.click()
+        description.send_keys("Producto Asociado 1", Keys.TAB, "7", Keys.TAB, Keys.TAB , "Observaciones solicitud asociada auto")
+         # Se da click en el icono del clip para cargar archivo
+        f.Click_Mixto("xpath", "/html/body/div[2]/div[2]/div/mat-dialog-container/app-associated-request/div/form/mat-dialog-content/div[14]/div[2]/div[1]/mat-form-field/div/div[1]/div[2]/i",4)
+        #Se debe enviar la ruta donde se encuentra el archivo
+        # En este caso se debe modifcar el nombre del usuario en la ruta
+        f.uploadfile("C:\\Users\\aleon\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
+        sleep(2)
+        # Diligencia el campo de precio 
+        f.Texto_Mixto("xpath", "(//input[@aria-required='true'])[2]", pricecot ,2)
+        # Diligencia el campo de observaciones 
+        f.Texto_Mixto("xpath", "(//input[@type='text'])[7]", "Observación cotizaciones automaticas." ,3)
+        # Se da click en el botón de Enviar
+        f.Click_NotScroll("//button[contains(.,'Enviar')]", 2)
+        # Se da click en el botón de Aceptar
+        f.Click_NotScroll("//button[contains(.,'Aceptar')]", 6)
+
+
+
+        
+
             
 
 
