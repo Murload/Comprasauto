@@ -10,6 +10,7 @@ from selenium.webdriver.common.by import By
 from Funcionesglobales.funciselenium import Funciones_Globales
 from random import choice
 
+t = 1
 #  Variable para el campo de tipo de adquisicion aleatorio
 typeadquiran = random.randint(1, 2)
 #  Variable para el campo de tipo de adquisicion aleatorio
@@ -36,21 +37,21 @@ class Applicant(unittest.TestCase):
         f = Funciones_Globales(self.driver)
         sleep(4)
         # Entra al modulo del rol solicitante
-        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[8]", 4)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[8]", t)
         # Entra le da click al botón de crear nueva solicitud
-        f.Click_NotScroll("//button[@color='primary'][contains(.,'Crear nueva solicitud')]", 3)
+        f.Click_NotScroll("//button[@color='primary'][contains(.,'Crear nueva solicitud')]", t)
         # le da click al seleccionable de tipo de adquisicion
-        f.Click_NotScroll("(//div[contains(.,'Tipo de adquisición *')])[7]", 1)
+        f.Click_NotScroll("(//div[contains(.,'Tipo de adquisición *')])[7]", t)
         # # Selecciona un tipo de adquisicion aleatoria
-        f.Click_NotScroll("(//span[contains(@class,'mat-option-text')])[{}]".format(typeadquiran),3 )
+        f.Click_NotScroll("(//span[contains(@class,'mat-option-text')])[{}]".format(typeadquiran),t )
         # le da click al seleccionable de categoria
-        f.Click_NotScroll("(//div[contains(.,'Categoría *')])[7]",1)
+        f.Click_NotScroll("(//div[contains(.,'Categoría *')])[7]",t)
         # Selecciona una categoria aleatoria
-        f.Click_Mixto("xpath", "(//span[contains(@class,'mat-option-text')])[1]".format(categoryran), 2)
+        f.Click_Mixto("xpath", "(//span[contains(@class,'mat-option-text')])[1]".format(categoryran), t)
         # le da click al seleccionable de empresas
-        f.Click_NotScroll("(//div[contains(.,'Empresa *')])[7]", 1)
+        f.Click_NotScroll("(//div[contains(.,'Empresa *')])[7]", t)
         # Selecciona una empresa aleatoria
-        f.Click_Mixto("xpath","(//mat-option[contains(@role,'option')])[{}]".format(companyran), 2)
+        f.Click_Mixto("xpath","(//mat-option[contains(@role,'option')])[{}]".format(companyran), t)
         # Se encuentra campo de nombre de campaña y se envian diligencian nombre de campaña, titulo de solicitud, detalle, fecha de ejecucion, observacion 
         # productos y cantidad
         campaingauto = self.driver.find_element(By.XPATH, "(//input[contains(@type,'text')])[4]")
@@ -59,8 +60,8 @@ class Applicant(unittest.TestCase):
         Keys.TAB, "16", "01", "2023", Keys.TAB, "Observación de  ejecución automatica", Keys.TAB, str(productos_alea) ,Keys.TAB, companyran)
         sleep(3)
         # Le da click a guardar la solicitud
-        f.Click_NotScroll("//button[@type='submit'][contains(.,'Guardar')]", 2)
+        f.Click_NotScroll("//button[@type='submit'][contains(.,'Guardar')]", 4)
         # Se le da un refrescar a la pagina
-        self.driver.refresh()
+        # self.driver.refresh()
         
         

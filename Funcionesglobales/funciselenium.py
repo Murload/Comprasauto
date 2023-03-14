@@ -7,6 +7,7 @@ from selenium.webdriver.common.keys import Keys
 from pywinauto import application
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import ElementClickInterceptedException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from random import choice
@@ -33,19 +34,24 @@ class Funciones_Globales():
 
     def Texto_Mixto(self,tipo,selector,texto,tiempo):
         if(tipo=="xpath"):
-            try:
-                val = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, selector)))
-                val = self.driver.execute_script("arguments[0].scrollIntoView();", val)
-                val = self.driver.find_element(By.XPATH, selector)
-                val.clear()
-                val.send_keys(texto)
-                print("Escribiendo en el campo {} el texto -> {} ".format(selector,texto))
-                t = time.sleep(tiempo)
-                return t
-            except TimeoutException as ex:
-                print(ex.msg)
-                print("No se encontro el Elemento" + selector)
-                return t
+            i = 1 
+            while i ==1:
+                try:
+                    val = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, selector)))
+                    val = self.driver.execute_script("arguments[0].scrollIntoView();", val)
+                    val = self.driver.find_element(By.XPATH, selector)
+                    val.clear()
+                    val.send_keys(texto)
+                    print("Escribiendo en el campo {} el texto -> {} ".format(selector,texto))
+                    t = time.sleep(tiempo)
+                    return t
+                    i= 0
+                except TimeoutException as ex:
+                    print(ex.msg)
+                    print("No se encontro el Elemento" + selector)
+                    return t
+                except ElementClickInterceptedException as ex:
+                    print("No se encontro el Campo {}  ".format(selector))
         elif(tipo == "id"):
             try:
                 val = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.ID, selector)))
@@ -63,18 +69,21 @@ class Funciones_Globales():
 
     def Click_Mixto(self, tipo, selector,tiempo):
         if (tipo == "xpath"):
-            try:
-                val = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, selector)))
-                val = self.driver.execute_script("arguments[0].scrollIntoView();", val)
-                val = self.driver.find_element(By.XPATH, selector)
-                val.click()
-                print("dando click en {} -> {} ".format(selector, selector))
-                t = time.sleep(tiempo)
-                return t
-            except TimeoutException as ex:
-                print(ex.msg)
-                print("No se encontro el Elemento" + selector)
-                return t
+            i = 1
+            a = 0
+            while i == 1:
+                try:
+                    val = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, selector)))
+                    t = time.sleep(tiempo)
+                    val.click()
+                    return t
+                    i = 0
+                    print(i)
+                except TimeoutException as ex:
+                    print(ex.msg)
+                    print("No se encontro el Campo {}  ".format(selector))
+                except ElementClickInterceptedException as ex:
+                    print("No se encontro el Campo {}  ".format(selector))
         elif (tipo == "id"):
             try:
                 val = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.ID, selector)))
@@ -91,15 +100,21 @@ class Funciones_Globales():
 
 
     def Click_NotScroll(self, selector, tiempo):
-            try:
-                val = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, selector)))
-                val = self.driver.find_element(By.XPATH, selector)
-                val.click()
-                t = time.sleep(tiempo)
-                return t
-            except TimeoutException as ex:
-                print(ex.msg)
-                print("No se encontro el Elemento" + selector)
+            i = 1
+            a = 0
+            while i == 1:
+                try:
+                    val = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, selector)))
+                    t = time.sleep(tiempo)
+                    val.click()
+                    return t
+                    i = 0
+                    print(i)
+                except TimeoutException as ex:
+                    print(ex.msg)
+                    print("No se encontro el Campo {}  ".format(selector))
+                except ElementClickInterceptedException as ex:
+                    print("No se encontro el Campo {}  ".format(selector))
                 
     def Click_selects(self, selector):
             try:
@@ -209,10 +224,16 @@ class Funciones_Globales():
            
     def Textkeyenenter(self, selector):
         searchprov = self.driver.find_element(By.XPATH, selector)
-        ActionChains(self.driver).click(searchprov).send_keys("793478952",Keys.ENTER).perform()
+        ActionChains(self.driver).click(searchprov).send_keys( Keys.ENTER,"prueba1",Keys.ARROW_DOWN, Keys.ENTER).perform()
 
     def gettext(self, selector):
         val1 = self.driver.find_element(By.XPATH, selector)
         val2 = val1.get_attribute('value')
         print(val2)
+
+
+    def alertascarga(self):
+        pass
+    #exista
+    #intercepte
         

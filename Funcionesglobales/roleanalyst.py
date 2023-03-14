@@ -18,6 +18,7 @@ companyran = random.randint(1, 99)
 # Variable para poner IVA aleatorio
 iva = random.randint(1, 5)
 # Variable para poner metodo de pago aleatorio
+t= 2
 
 methodpay = random.randint(1, 4)
 
@@ -30,15 +31,15 @@ class Analyst(unittest.TestCase):
         sleep(4)
         f = Funciones_Globales(self.driver)
         # Entra al modulo del rol analista
-        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[7]", 5)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[7]", t)
         # Se da click en el botón de gestionar
-        f.Click_Mixto("xpath", "(//span[contains(.,'Gestionar')])[1]", 1)
+        f.Click_Mixto("xpath", "(//span[contains(.,'Gestionar')])[1]", t)
         # le da click al seleccionable de Estado
-        f.Click_Mixto("xpath", "(//div[contains(.,'Estado')])[17]", 3)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Estado')])[17]", t)
         # le da click al seleccionable de Estado  
-        f.Click_NotScroll("(//span[@class='mat-option-text'])[1]", 1)
+        f.Click_NotScroll("(//span[@class='mat-option-text'])[1]", t)
         # le da click al campo de cotización 
-        f.Click_Mixto("xpath", "(//div[contains(.,'Cotización 1')])[9]", 2)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Cotización 1')])[9]", t)
         # Se da click en el icono del clip para cargar archivo
         f.Click_NotScroll("/html/body/div[2]/div[2]/div/mat-dialog-container/app-procesar-solicitud/div/form/mat-dialog-content/div[9]/div[2]/div[1]/mat-form-field/div/div[1]/div[2]/i",3)
         #Se debe enviar la ruta donde se encuentra el archivo
@@ -46,13 +47,15 @@ class Analyst(unittest.TestCase):
         f.uploadfile("C:\\Users\\aleon\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
         sleep(2)
         # Diligencia el campo de precio 
-        f.Texto_Mixto("xpath", "(//input[@aria-required='true'])[2]", pricecot ,1)
+        price =self.driver.find_element(By.XPATH,"(//input[@aria-required='true'])[2]")
         # Diligencia el campo de observaciones 
-        f.Texto_Mixto("xpath", "(//input[@type='text'])[5]", "Observación cotizaciones automaticas." ,3)
+        price.send_keys(pricecot, Keys.TAB, Keys.TAB, Keys.TAB, "Pruebas autos")
         # Se da click en el botón de Enviar
-        f.Click_NotScroll("//button[contains(.,'Enviar')]", 1)
+        f.Click_NotScroll("//button[contains(.,'Enviar')]", t)
         # Se da click en el botón de Aceptar
-        f.Click_NotScroll("//button[contains(.,'Aceptar')]", 6)
+        f.Click_NotScroll("//button[contains(.,'Aceptar')]", t)
+        # Se da click en el botón de Continuar
+        f.Click_NotScroll("//button[contains(.,'Continuar')]", t)
 
     def managerequestAnaback(self):
         # Llamado de funciones globales
@@ -82,7 +85,11 @@ class Analyst(unittest.TestCase):
         # Se da click en el botón de orden
         f.Click_Mixto("xpath", "(//span[contains(.,'Orden')])[1]", 2)
         # Diligencia el campo de NIT proveedor y le da enter
-        f.Textkeyenenter("(//input[@aria-invalid='false'])[2]")
+          # Diligencia el campo de precio 
+        prov =self.driver.find_element(By.XPATH,"(//input[@aria-required='false'])[5]")
+        # Diligencia el campo de observaciones 
+        prov.click()
+        prov.send_keys(Keys.TAB, Keys.TAB)
         sleep(3)
         # Se da click en el botón de Generar orden
         f.Click_NotScroll("//button[contains(.,'Generar Orden')]", 4)
