@@ -22,29 +22,9 @@ class Comprasauto(unittest.TestCase):
         funciones = Funciones_Globales(self.driver)
         funciones.Navegar("http://qamios.groupcos.com/login", 1)
         
-    def test_completes(self):
-        # Flujo completo desde la solicitud hasta el ingreso del producto
-        print("# Flujo completo desde la solicitud hasta el ingreso del producto")
-        f = Funciones_Globales(self.driver)
-        login = Login_qasoul(self.driver)
-        roleapplicant = Applicant(self.driver)
-        roleanalyst = Analyst(self.driver)
-        rolecoordinator = Coordinator(self.driver)
-        rolecontrol = Control(self.driver)
-        login.loginqa()
-        login.menucompras()
-        # roleapplicant.createnewrequest()
-        # rolecontrol.managerequestContNotAvailable()
-        # roleanalyst.managerequestAnaAccept()
-        # rolecoordinator.manageaccept()
-        roleanalyst.order()
-        roleanalyst.sendorder()
-        rolecontrol.entry_product()
-        f.End()
-
-    # def test_complete_fragme(self):
-    #     # Flujo completo desde la solicitud hasta el ingreso del producto con orden de compra fragmentada
-    #     print(" # Flujo completo desde la solicitud hasta el ingreso del producto con orden de compra fragmentada")
+    # def test_completes(self):
+    #     # Flujo completo desde la solicitud hasta el ingreso del producto
+    #     print("# Flujo completo desde la solicitud hasta el ingreso del producto")
     #     f = Funciones_Globales(self.driver)
     #     login = Login_qasoul(self.driver)
     #     roleapplicant = Applicant(self.driver)
@@ -58,9 +38,29 @@ class Comprasauto(unittest.TestCase):
     #     roleanalyst.managerequestAnaAccept()
     #     rolecoordinator.manageaccept()
     #     roleanalyst.order()
-    #     roleanalyst.fragorder()
-    #     rolecontrol.entry_product_frag()
+    #     roleanalyst.sendorder()
+    #     rolecontrol.entry_product()
     #     f.End()
+
+    def test_complete_fragme(self):
+        # Flujo completo desde la solicitud hasta el ingreso del producto con orden de compra fragmentada
+        print(" # Flujo completo desde la solicitud hasta el ingreso del producto con orden de compra fragmentada")
+        f = Funciones_Globales(self.driver)
+        login = Login_qasoul(self.driver)
+        roleapplicant = Applicant(self.driver)
+        roleanalyst = Analyst(self.driver)
+        rolecoordinator = Coordinator(self.driver)
+        rolecontrol = Control(self.driver)
+        login.loginqa()
+        login.menucompras()
+        roleapplicant.createnewrequest()
+        rolecontrol.managerequestContNotAvailable()
+        roleanalyst.managerequestAnaAccept()
+        rolecoordinator.manageaccept()
+        roleanalyst.order()
+        roleanalyst.fragorder()
+        rolecontrol.entry_product_frag()
+        f.End()
 
     # def test_cancelation(self):
     #     #Flujo completo desde la solicitud hasta el ingreso del producto con orden de compra fragmentada
@@ -129,22 +129,22 @@ class Comprasauto(unittest.TestCase):
 
     # def test_analyst_assoc(self):
         # Flujo con una solicitud asociada
-        f = Funciones_Globales(self.driver)
-        login = Login_qasoul(self.driver)
-        roleapplicant = Applicant(self.driver)
-        roleanalyst = Analyst(self.driver)
-        rolecoordinator = Coordinator(self.driver)
-        rolecontrol = Control(self.driver)
-        login.loginqa()
-        login.menucompras()
-        roleapplicant.createnewrequest()
-        rolecontrol.managerequestContNotAvailable()
-        roleanalyst.associate()
-        rolecoordinator.manageaccept()
-        roleanalyst.order()
-        roleanalyst.sendorder()
-        rolecontrol.entry_product()
-        f.End()
+        # f = Funciones_Globales(self.driver)
+        # login = Login_qasoul(self.driver)
+        # roleapplicant = Applicant(self.driver)
+        # roleanalyst = Analyst(self.driver)
+        # rolecoordinator = Coordinator(self.driver)
+        # rolecontrol = Control(self.driver)
+        # login.loginqa()
+        # login.menucompras()
+        # roleapplicant.createnewrequest()
+        # rolecontrol.managerequestContNotAvailable()
+        # roleanalyst.associate()
+        # rolecoordinator.manageaccept()
+        # roleanalyst.order()
+        # roleanalyst.sendorder()
+        # rolecontrol.entry_product()
+        # f.End()
 
         
     def tearDown(self):

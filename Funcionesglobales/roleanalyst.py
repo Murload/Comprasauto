@@ -14,7 +14,7 @@ from Funcionesglobales.roleapplicant import Applicant
 
 # Variable para poner precio de la cotizacion aleatorio
 pricecot = random.randint(100000, 999999)
-date = datetime.today().strftime("%d/%m/%Y")
+date = datetime.today().strftime('%d%m%Y')
 companyran = random.randint(1, 99)
 # Variable para poner IVA aleatorio
 iva = random.randint(1, 5)
@@ -116,13 +116,13 @@ class Analyst(unittest.TestCase):
         # Selecciona la opcion de Abono, se diligencian campos de Valor de abpono, porcentaje de abono, garantia, poliza 
         # Ciudad de entrega, direccion y observacionbes
         valueabo = self.driver.find_element(By.XPATH, "(//span[contains(@class,'mat-option-text')])[1]")
-        ActionChains(self.driver).click(valueabo).send_keys(Keys.TAB,"1000000", Keys.TAB,"5", Keys.TAB, Keys.ARROW_RIGHT,
+        ActionChains(self.driver).click(valueabo).send_keys(Keys.TAB,"0", Keys.TAB,"5", Keys.TAB, Keys.ARROW_RIGHT,
         Keys.TAB, Keys.ARROW_RIGHT, Keys.TAB, "Ciudad auto", Keys.TAB,"Direccion auto", Keys.TAB,"Observaciones de condiciones auto").perform() 
         sleep(5)
         # Se da click en el botón de Guardar
         f.Click_Mixto("xpath", "(//button[@type='button'])[10]", 2)
         # Se da click en el botón de Guardar
-        f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 10)
+        f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 2)
 
     def sendorder(self):
         # Llamado de funciones globales
@@ -139,20 +139,26 @@ class Analyst(unittest.TestCase):
     def fragorder(self):
         # Llamado de funciones globales
         f = Funciones_Globales(self.driver)
-        # Se realiza que una variable random para el numero de productos se modulo para ver si es par o impar el numero
-        companyrandiv = companyran % 2
-        # Se divide el numero en 2 para asi mismo hacer 2 fragmentaciones
-        frag = companyran/2
-        # Se da click al modulo de analista
         sleep(4)
         f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[7]", 1)
         # Se da click al tap de Ordenes de compra
         f.Click_NotScroll("(//div[contains(.,'Órdenes de compra')])[7]",3 )
         # Se da click al icono de fragmentacion
-        f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]", 3)
+        f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]", 1)
         # Se da click al botón de siguiente
         f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
+
+
+        quantitysol1 = self.driver.find_element(By.XPATH, "(//input[@type='number'])[4]")
+        # # Se toma el valor del campo
+        companyran1 = quantitysol1.get_attribute('value')
+        companyran =(int(companyran1))
+        # Se divide el numero en 2 para asi mismo hacer 2 fragmentaciones
+        frag = companyran/2
+        print(frag)
         # Se valida si es par
+        companyrandiv = companyran % 2
+        print(companyrandiv)
         if companyrandiv == 0:
             fragpar=(int(frag))
             # Diligencia el campo de nueva cantidad
@@ -160,21 +166,23 @@ class Analyst(unittest.TestCase):
             # Se da click al botón de siguiente
             f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]", 1)
             # Se da click al botón de Guardar
-            f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 21)
+            f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 1)
             # Se da click en el botón de Continuar
-            f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 20)
+            f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 1)
+            f.Click_Mixto("xpath", "(//td[contains(@role,'gridcell')])[2]", 1)
+            f.Click_Mixto("xpath", "(//i[contains(@class,'fi-rr-paper-plane')])[1]", 1)
             # Se da click al icono de fragmentacion
-            f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]", 5)
+            f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]", 1)
             # Se da click al botón de siguiente
             f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
             # Diligencia el campo de nueva cantidad
-            f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragpar, 5)
+            f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragpar, 1)
             # Se da click al botón de siguiente
             f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]", 1)
             # Se da click al botón de Guardar
             f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 2)
             # Se da click en el botón de Continuar
-            f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 20)
+            f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 1)
         else:
         # Se valida si es impar
             fragimpar1 = (int(frag))

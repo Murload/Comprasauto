@@ -10,6 +10,9 @@ from selenium.webdriver.common.by import By
 from Funcionesglobales.funciselenium import Funciones_Globales
 from random import choice
 
+
+
+item = random.randint(1, 15)
 t = 1
 #  Variable para el campo de tipo de adquisicion aleatorio
 typeadquiran = random.randint(1, 2)
@@ -57,7 +60,7 @@ class Applicant(unittest.TestCase):
         campaingauto = self.driver.find_element(By.XPATH, "(//input[contains(@type,'text')])[4]")
         campaingauto.click()
         campaingauto.send_keys("CampañapruebaAutomatica", Keys.TAB, str(productos_alea)+" {}".format(name), Keys.TAB,"Detalles automaticoqwer", 
-        Keys.TAB, "16", "01", "2023", Keys.TAB, "Observación de  ejecución automatica", Keys.TAB, str(productos_alea) ,Keys.TAB, companyran)
+        Keys.TAB, "16", "01", "2023", Keys.TAB, "Observación de  ejecución automatica", Keys.TAB, str(productos_alea) ,Keys.TAB, item)
         sleep(3)
         # Le da click a guardar la solicitud
         f.Click_NotScroll("//button[@type='submit'][contains(.,'Guardar')]", 4)
