@@ -22,7 +22,7 @@ class Login_qasoul(unittest.TestCase):
         f = Funciones_Globales(self.driver)
         #Se realiza llamado de funciones globales
         f.Texto_Mixto("xpath", "//input[@id='mat-input-0']", "testautos_leo",t)
-        f.Texto_Mixto("xpath", "//input[@id='mat-input-1']", "Marzo2023*", t)
+        f.Texto_Mixto("xpath", "//input[@id='mat-input-1']", "Abril2023*", t)
         f.Click_Mixto("xpath", "//button[@type='submit']", t)
         sleep(2)
 

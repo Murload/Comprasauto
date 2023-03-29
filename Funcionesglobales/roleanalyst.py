@@ -8,12 +8,13 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
+from datetime import datetime
 from Funcionesglobales.funciselenium import Funciones_Globales
 from Funcionesglobales.roleapplicant import Applicant
 
 # Variable para poner precio de la cotizacion aleatorio
 pricecot = random.randint(100000, 999999)
-
+date = datetime.today().strftime("%d/%m/%Y")
 companyran = random.randint(1, 99)
 # Variable para poner IVA aleatorio
 iva = random.randint(1, 5)
@@ -78,39 +79,34 @@ class Analyst(unittest.TestCase):
 
     def order(self):
         # Llamado de funciones globales
+        print(date)
         f = Funciones_Globales(self.driver)
         sleep(4)
         # Entra al modulo del rol analista
-        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[7]", 4)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[7]",5)
         # Se da click en el botón de orden
-        f.Click_Mixto("xpath", "(//span[contains(.,'Orden')])[1]", 2)
+        f.xpath_buttons("(//span[contains(.,'Orden')])[1]")
         # Diligencia el campo de NIT proveedor y le da enter
           # Diligencia el campo de precio 
-        prov =self.driver.find_element(By.XPATH,"(//input[@aria-required='false'])[5]")
-        # Diligencia el campo de observaciones 
-        prov.click()
-        prov.send_keys(Keys.TAB, Keys.TAB)
-        sleep(3)
+        f.sendkeys("//input[contains(@formcontrolname,'nitProveedor')]", 1,"1234567899")
         # Se da click en el botón de Generar orden
         f.Click_NotScroll("//button[contains(.,'Generar Orden')]", 4)
         # Se da click en el botón de siguiente
         f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 6)
         # Diligencia el campo de descripción, especificación, Cantidad, tipo de moneda, valor unitario 
-        textdetails= self.driver.find_element(By.XPATH, "(//input[contains(@type,'text')])[1]")
-        textdetails.send_keys("Producto", Keys.TAB ,"Especificación", Keys.TAB, companyran, Keys.TAB,
-        Keys.ARROW_RIGHT, Keys.TAB, pricecot)
+        textdetails= self.driver.find_element(By.XPATH, "(//input[@type='text'])[5]")
+        textdetails.send_keys("Especificación", Keys.TAB, Keys.TAB, Keys.ARROW_RIGHT, Keys.TAB, pricecot)
         # le da click al seleccionable de Iva
         f.Click_NotScroll("(//div[contains(.,'IVA')])[12]",1)
         # Selecciona la opcion de iva aleatoriamente
         f.Click_NotScroll("(//span[@class='mat-option-text'])[{}]".format(iva), 3)
         # Se da click en el botón de siguiente
         f.Click_Mixto("xpath", "(//button[@type='button'])[8]", 5)
+        
          # Diligencia el campo de descripción
-        f.Texto_Mixto("xpath", "(//input[@type='text'])[3]", "Observación de Orden de compra automatica.",2)
-         # Diligencia el campo de Descuento
-        f.Texto_Mixto("xpath", "(//input[@aria-required='true'])[6]", "0",5)
+        f.Texto_Mixto("xpath", "(//input[@type='text'])[6]", "Observación de Orden de compra automatica.",2)
          # Diligencia el campo de Fecha de entrega
-        f.Texto_Mixto("xpath", "//input[@type='date']", "20012023",2)
+        f.Texto_Mixto("xpath", "//input[@type='date']", date,2)
         # le da click al seleccionable de Método de pago
         f.Click_NotScroll("(//div[contains(.,'Método de pago')])[9]", 1)
          # Selecciona la opcion de Método de pago aleatoriamente

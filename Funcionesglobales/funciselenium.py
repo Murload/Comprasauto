@@ -199,6 +199,7 @@ class Funciones_Globales():
     def xpath_buttons(self, xpath):
             try:
                 val = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, xpath)))
+                val = self.driver.find_element(By.XPATH, xpath)
                 val.click()
             except TimeoutException as ex:
                 print(ex.msg)
@@ -230,6 +231,23 @@ class Funciones_Globales():
         val1 = self.driver.find_element(By.XPATH, selector)
         val2 = val1.get_attribute('value')
         print(val2)
+
+    def sendkeys(self,selector, tiempo, text):
+            i = 1
+            while i == 1:
+                try:
+                    val = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, selector)))
+                    val = self.driver.find_element(By.XPATH, selector)
+                    val.send_keys(text, Keys.ENTER)
+                    t = time.sleep(tiempo)
+                    return t
+                    i = 0
+                    print(i)
+                except TimeoutException as ex:
+                    print(ex.msg)
+                    print("No se encontro el Campo {}  ".format(selector))
+                except ElementClickInterceptedException as ex:
+                    print("No se encontro el Campo {}  ".format(selector))
 
 
     def alertascarga(self):

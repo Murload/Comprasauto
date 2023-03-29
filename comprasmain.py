@@ -95,7 +95,6 @@ class Comprasauto(unittest.TestCase):
     #     rolecontrol.managerequestContdAvailable()
     #     f.End()
 
-
     # def test_back_manage(self):
     #     #Se realiza test para cuando el rol de analista devuelva la solicitud.
     #     print("#Se realiza test para cuando el rol de analista devuelva la solicitud.")
