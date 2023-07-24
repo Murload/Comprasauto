@@ -34,6 +34,7 @@ class Control(unittest.TestCase):
         f.Texto_Mixto("xpath", "(//input[contains(@type,'text')])[2]", "Observación automatica disponible", t)
         # Se da click en el botón de Enviar
         f.Click_NotScroll("//button[@type='submit'][contains(.,'Enviar')]", t)
+        sleep(5)
 
     def managerequestContNotAvailable(self):
         # Llamado de funciones globales
@@ -78,6 +79,7 @@ class Control(unittest.TestCase):
         f.Click_NotScroll("//button[contains(.,'Enviar')]", 1)
         # Se da click en el botón de Aceptar
         f.Click_NotScroll("//button[contains(.,'Aceptar')]", 6)
+        sleep(10)
 
     def entry_product_frag(self):
         # Llamado de funciones globales
@@ -109,7 +111,8 @@ class Control(unittest.TestCase):
             # Se da click en el botón de Enviar
             f.Click_NotScroll("//button[contains(.,'Enviar')]",1)
             # Se da click en el botón de Aceptar
-            f.Click_NotScroll("//button[contains(.,'Aceptar')]",10)
+            f.Click_NotScroll("//button[contains(.,'Aceptar')]",1)
+            sleep(6)
         sleep(5)
     
         

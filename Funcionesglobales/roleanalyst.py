@@ -71,23 +71,28 @@ class Analyst(unittest.TestCase):
         # Selecciona la opcion de Devuelta
         f.Click_NotScroll("(//span[@class='mat-option-text'])[2]", 1)
         # Diligencia el campo de observaciones 
-        f.Texto_Mixto("xpath", "(//input[@type='text'])[2]", "Observación devuelta automaticamente", 2)
+        f.Texto_Mixto("xpath", "(//input[@type='text'])[5]", "Observación devuelta automaticamente", 2)
         # Se da click en el botón de guardar
         f.Click_NotScroll("//button[contains(.,'Guardar')]", 1)
         # Se da click en el botón de Aceptar
-        f.Click_NotScroll("//button[contains(.,'Aceptar')]", 4)
+        f.Click_NotScroll("//button[contains(.,'Aceptar')]", 1)
+        # Se da click en el botón de Continuar
+        f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 1)
+
+        sleep(10)
 
     def order(self):
         # Llamado de funciones globales
         print(date)
         f = Funciones_Globales(self.driver)
-        sleep(4)
         # Entra al modulo del rol analista
         f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[7]",5)
         # Se da click en el botón de orden
+        sleep(3)
         f.xpath_buttons("(//span[contains(.,'Orden')])[1]")
         # Diligencia el campo de NIT proveedor y le da enter
-          # Diligencia el campo de precio 
+        sleep(3)
+        # Diligencia el campo de precio 
         f.sendkeys("//input[contains(@formcontrolname,'nitProveedor')]", 1,"1234567899")
         # Se da click en el botón de Generar orden
         f.Click_NotScroll("//button[contains(.,'Generar Orden')]", 4)
@@ -101,8 +106,7 @@ class Analyst(unittest.TestCase):
         # Selecciona la opcion de iva aleatoriamente
         f.Click_NotScroll("(//span[@class='mat-option-text'])[{}]".format(iva), 3)
         # Se da click en el botón de siguiente
-        f.Click_Mixto("xpath", "(//button[@type='button'])[8]", 5)
-        
+        f.Click_Mixto("xpath", "(//button[@type='button'])[8]", 5)  
          # Diligencia el campo de descripción
         f.Texto_Mixto("xpath", "(//input[@type='text'])[6]", "Observación de Orden de compra automatica.",2)
          # Diligencia el campo de Fecha de entrega
@@ -118,11 +122,11 @@ class Analyst(unittest.TestCase):
         valueabo = self.driver.find_element(By.XPATH, "(//span[contains(@class,'mat-option-text')])[1]")
         ActionChains(self.driver).click(valueabo).send_keys(Keys.TAB,"0", Keys.TAB,"5", Keys.TAB, Keys.ARROW_RIGHT,
         Keys.TAB, Keys.ARROW_RIGHT, Keys.TAB, "Ciudad auto", Keys.TAB,"Direccion auto", Keys.TAB,"Observaciones de condiciones auto").perform() 
-        sleep(5)
         # Se da click en el botón de Guardar
         f.Click_Mixto("xpath", "(//button[@type='button'])[10]", 2)
         # Se da click en el botón de Guardar
         f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 2)
+        
 
     def sendorder(self):
         # Llamado de funciones globales
@@ -136,7 +140,7 @@ class Analyst(unittest.TestCase):
         f.Click_NotScroll("//button[contains(.,'Aceptar')]", 1)
         sleep(20)
 
-    def fragorder(self):
+    def fragorde2r(self):
         # Llamado de funciones globales
         f = Funciones_Globales(self.driver)
         sleep(4)
@@ -147,8 +151,6 @@ class Analyst(unittest.TestCase):
         f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]", 1)
         # Se da click al botón de siguiente
         f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
-
-
         quantitysol1 = self.driver.find_element(By.XPATH, "(//input[@type='number'])[4]")
         # # Se toma el valor del campo
         companyran1 = quantitysol1.get_attribute('value')
@@ -161,7 +163,7 @@ class Analyst(unittest.TestCase):
         print(companyrandiv)
         if companyrandiv == 0:
             fragpar=(int(frag))
-            # Diligencia el campo de nueva cantidad
+            #Diligencia el campo de nueva cantidad
             f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragpar, 5)
             # Se da click al botón de siguiente
             f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]", 1)
@@ -169,8 +171,11 @@ class Analyst(unittest.TestCase):
             f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 1)
             # Se da click en el botón de Continuar
             f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 1)
-            f.Click_Mixto("xpath", "(//td[contains(@role,'gridcell')])[2]", 1)
-            f.Click_Mixto("xpath", "(//i[contains(@class,'fi-rr-paper-plane')])[1]", 1)
+            sleep(5)
+            f.Click_NotScroll("(//td[@align='right'])[1]",3)
+            f.Click_NotScroll("(//i[@class='fi-rr-paper-plane'])[1]", 1)
+            f.Click_Mixto("xpath", "//button[contains(.,'Aceptar')]", 2)
+            sleep(10)
             # Se da click al icono de fragmentacion
             f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]", 1)
             # Se da click al botón de siguiente
@@ -193,21 +198,48 @@ class Analyst(unittest.TestCase):
             # Se da click al botón de siguiente
             f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]",1 )
              # Se da click al botón de Guardar
-            f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 21)
+            f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 1)
             # Se da click en el botón de Continuar
-            f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 20)
+            f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 1)
+            sleep(5)
+            f.Click_NotScroll("(//td[@align='right'])[1]",3)
+            f.Click_NotScroll("(//i[@class='fi-rr-paper-plane'])[1]", 1)
+            f.Click_Mixto("xpath", "//button[contains(.,'Aceptar')]", 1)
             # Se da click al icono de fragmentacion
-            f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]",4)
+            f.Click_Mixto("xpath","(//i[@class='fi-rr-layout-fluid'])[1]",1)
             # Se da click en el botón de siguiente
-            f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
             # Diligencia el campo de nueva cantidad
-            f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragimpar2, 5)
+            f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", fragimpar2, 1)
             # Se da click al botón de siguiente
             f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]",1)
             # Se da click al botón de Guardar
-            f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 2)
             # Se da click en el botón de Continuar
-            f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 20)
+            f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 1)
+
+    def fragorder(self):
+        # Llamado de funciones globales
+        f = Funciones_Globales(self.driver)
+        f.Click_Mixto("xpath", "(//div[contains(.,'Solicitudes')])[7]", 1)
+        # Se da click al tap de Ordenes de compra
+        f.Click_NotScroll("(//div[contains(.,'Órdenes de compra')])[7]",3 )
+        f.Click_NotScroll("(//i[@class='fi-rr-layout-fluid'])[1]", 1)
+        f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
+        f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", 3, 1)
+        f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[2]", 2)
+        f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 1)
+        # Se da click en el botón de Continuar
+        f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 1)
+        sleep(5)
+        f.Click_NotScroll("(//td[@role='gridcell'][contains(.,'Fragmentado')])[1]",3)
+        f.Click_NotScroll("(//i[@class='fi-rr-paper-plane'])[1]", 1)
+        f.Click_Mixto("xpath", "//button[contains(.,'Aceptar')]", 5)
+        sleep(15)
+        f.Click_Mixto("xpath","(//i[@class='fi-rr-layout-fluid'])[1]",1)
+        f.Click_Mixto("xpath", "(//button[contains(.,'Siguiente')])[1]", 2)
+        f.Texto_Mixto("xpath", "(//input[@type='number'])[5]", 3, 1)
+        f.Click_NotScroll("(//button[contains(.,'Siguiente')])[2]",1)
+        f.Click_Mixto("xpath", "//button[contains(.,'Guardar')]", 2)
+        f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 1)
 
     def cancelationOC(self):
         # Llamado de funciones globales
@@ -222,7 +254,7 @@ class Analyst(unittest.TestCase):
         # Se da click al botón de Enviar
         f.Click_Mixto("xpath","//button[@color='primary'][contains(.,'Enviar')]", 2)
         # Se da click en el botón de Continuar
-        f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 10)
+        f.Click_Mixto("xpath", "//button[contains(.,'Continuar')]", 1)
 
     def associate(self):
         # Llamado de funciones globales
@@ -237,25 +269,26 @@ class Analyst(unittest.TestCase):
         f.Click_NotScroll("(//span[@class='mat-option-text'])[1]", 2)
         #Le da click en el botón de Crear solicitud asociada
         f.Click_NotScroll("//button[contains(.,'Crear solicitud asociada')]", 3)
-        f.gettext("(//div[@class='col-4'])[12]")
+        # f.gettext("(//div[@class='col-4'])[12]")
         # Llenar campo de descripcion
-        description = self.driver.find_element(By.XPATH, "(//input[contains(@type,'text')])[2]")
-        description.click()
-        description.send_keys("Producto Asociado 1", Keys.TAB, "7", Keys.TAB, Keys.TAB , "Observaciones solicitud asociada auto")
+        description = self.driver.find_element(By.XPATH, "(//input[contains(@type,'text')])[10]")
+        # description.click()
+        description.send_keys("Producto Asociado 1", Keys.TAB, "6", Keys.TAB , "Observaciones", Keys.TAB ,Keys.TAB , "Observaciones solicitud asociada auto")
          # Se da click en el icono del clip para cargar archivo
-        f.Click_Mixto("xpath", "/html/body/div[2]/div[2]/div/mat-dialog-container/app-associated-request/div/form/mat-dialog-content/div[14]/div[2]/div[1]/mat-form-field/div/div[1]/div[2]/i",4)
+        f.Click_Mixto("xpath", "/html/body/div[2]/div[4]/div/mat-dialog-container/app-associated-request/div/form/mat-dialog-content/div[14]/div[2]/div[1]/mat-form-field/div/div[1]/div[2]/i",4)
         #Se debe enviar la ruta donde se encuentra el archivo
         # En este caso se debe modifcar el nombre del usuario en la ruta
         f.uploadfile("C:\\Users\\aleon\\Desktop\\Comprasauto\\filesupload\\cotizacion1.pdf")
         sleep(2)
         # Diligencia el campo de precio 
-        f.Texto_Mixto("xpath", "(//input[@aria-required='true'])[2]", pricecot ,2)
+        f.Texto_Mixto("xpath", "(//input[@aria-required='true'])[3]", pricecot ,2)
         # Diligencia el campo de observaciones 
-        f.Texto_Mixto("xpath", "(//input[@type='text'])[7]", "Observación cotizaciones automaticas." ,3)
+        f.Texto_Mixto("xpath", "(//input[@formcontrolname='observacion'])[3]", "Observación cotizaciones automaticas." ,3)
         # Se da click en el botón de Enviar
         f.Click_NotScroll("//button[contains(.,'Enviar')]", 2)
         # Se da click en el botón de Aceptar
-        f.Click_NotScroll("//button[contains(.,'Aceptar')]", 6)
+        f.Click_NotScroll("//button[contains(.,'Aceptar')]", 1)
+        f.Click_NotScroll("//button[contains(.,'Continuar')]", 1)
 
 
 
